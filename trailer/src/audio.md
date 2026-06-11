@@ -1,7 +1,8 @@
-# Áudio do trailer — plano (placeholder por enquanto)
+# Áudio do trailer — GERADO (ElevenLabs)
 
-O corte renderiza HOJE sem áudio; as marcações de cada cena estão nos
-comentários de `Trailer.jsx`, segundo a segundo, prontas pra encaixar.
+Os arquivos vivem em `public/audio/` (commitados: o render não depende
+de key). Pra regerar: `ELEVENLABS_API_KEY=... node gerar-audio.mjs`.
+A key vem SEMPRE do ambiente — nunca de arquivo do repo.
 
 ## Decisão de produção (alinhada com o Fabian)
 

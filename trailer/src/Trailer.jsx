@@ -1,9 +1,9 @@
 // Corte principal (40s, X/Twitter) — roteiro em docs/TRAILER.md.
 // Um jogo de texto pede trailer de tipografia cinética: o texto É a imagem.
-// Áudio: PLACEHOLDER — ver src/audio.md. As marcações de som estão nos
-// comentários de cada cena pra trilha/locução encaixarem depois.
+// Áudio: gerado por IA via ElevenLabs (gerar-audio.mjs) — locução, chiado,
+// surdo e torcida ORIGINAL. Mapa segundo a segundo em src/audio.md.
 
-import { AbsoluteFill, Sequence, useCurrentFrame, interpolate, spring, useVideoConfig } from "remotion";
+import { AbsoluteFill, Audio, Sequence, staticFile, useCurrentFrame, interpolate, spring, useVideoConfig } from "remotion";
 import { Pelicula, Prancheta, VuRadio, Placar } from "./graficos.jsx";
 
 export const FPS = 30;
@@ -305,22 +305,49 @@ const Convite = () => {
   );
 };
 
+const som = (arquivo) => staticFile(`audio/${arquivo}`);
+
 export const Trailer = () => (
   <AbsoluteFill style={{ backgroundColor: COR.fundo }}>
-    {/* [áudio] 0–3s: silêncio → chiado de rádio sobe */}
     <Sequence from={s(0)} durationInFrames={s(3)}><Abertura /></Sequence>
-    {/* [áudio] 3–6s: chiado cresce */}
     <Sequence from={s(3)} durationInFrames={s(3)}><Resposta /></Sequence>
-    {/* [áudio] 6–12s: surdo entra, longe */}
     <Sequence from={s(6)} durationInFrames={s(6)}><Ficha /></Sequence>
-    {/* [áudio] 12–20s: locutor tenso, baixo */}
     <Sequence from={s(12)} durationInFrames={s(8)}><Narracao /></Sequence>
-    {/* [áudio] 20–28s: locutor EXPLODE + charanga; 0,5s de silêncio antes do GOL */}
     <Sequence from={s(20)} durationInFrames={s(8)}><Lance /></Sequence>
-    {/* [áudio] 28–34s: coro da torcida (faixa ORIGINAL — nada de canto real) */}
     <Sequence from={s(28)} durationInFrames={s(6)}><Decisoes /></Sequence>
-    {/* [áudio] 34–40s: música corta; só o surdo, como coração */}
     <Sequence from={s(34)} durationInFrames={s(6)}><Convite /></Sequence>
+
+    {/* ── trilha (ElevenLabs, gerar-audio.mjs) ── */}
+    {/* 0–6s: silêncio → chiado de rádio subindo */}
+    <Sequence from={s(0)} durationInFrames={s(6)}>
+      <Audio src={som("sfx-chiado.mp3")} volume={(f) => interpolate(f, [0, s(2), s(6)], [0.05, 0.25, 0.7])} />
+    </Sequence>
+    {/* 6–12s: surdo entra, longe */}
+    <Sequence from={s(6)} durationInFrames={s(6)}>
+      <Audio src={som("sfx-surdo-longe.mp3")} volume={0.55} />
+    </Sequence>
+    {/* 12–20s: locutor tenso + surdo seguindo baixinho */}
+    <Sequence from={s(12)} durationInFrames={s(8)}>
+      <Audio src={som("locucao-narracao.mp3")} volume={0.95} />
+      <Audio src={som("sfx-surdo-longe.mp3")} volume={0.2} />
+    </Sequence>
+    {/* 20–24.8s: o locutor explode (a locução tem 4,9s: morre no corte seco) */}
+    <Sequence from={s(20)} durationInFrames={s(4.9)}>
+      <Audio src={som("locucao-lance.mp3")} volume={1} />
+    </Sequence>
+    {/* 24.8–25.3s: SILÊNCIO ABSOLUTO (nenhuma faixa toca aqui) */}
+    {/* 25.3s: GOL + torcida explodindo, segue sob as decisões e corta aos 34s */}
+    <Sequence from={s(25.3)} durationInFrames={s(2.1)}>
+      <Audio src={som("locucao-gol.mp3")} volume={1} />
+    </Sequence>
+    <Sequence from={s(25.3)} durationInFrames={s(8.7)}>
+      <Audio src={som("sfx-torcida.mp3")} volume={(f) => interpolate(f, [0, s(0.4), s(7.7), s(8.7)], [0.9, 0.75, 0.65, 0])} />
+    </Sequence>
+    {/* 34–40s: só o surdo, como coração batendo */}
+    <Sequence from={s(34)} durationInFrames={s(6)}>
+      <Audio src={som("sfx-surdo-coracao.mp3")} volume={0.7} />
+    </Sequence>
+
     {/* grão de filme + vinheta por cima de tudo: uma película só */}
     <Pelicula />
   </AbsoluteFill>
