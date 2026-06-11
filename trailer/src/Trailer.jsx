@@ -293,14 +293,13 @@ const Convite = () => {
         style={{
           fontFamily: MONO,
           fontWeight: "bold",
-          fontSize: 130,
+          fontSize: 82, // URL do Pages é longa; domínio próprio fica pra depois
           color: COR.destaque,
           marginTop: 70,
           transform: `scale(${pulso})`,
         }}
       >
-        {/* placeholder até o domínio existir (teaser/config.mjs) */}
-        varzea.jogo.br
+        fabianlima-lab.github.io/ginga-labs
       </div>
     </Tela>
   );
