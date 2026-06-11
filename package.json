@@ -1,0 +1,10 @@
+{
+  "name": "prancheta-fc",
+  "version": "0.1.0",
+  "description": "Prancheta FC — protótipo do gerador de mundo e simulador (Ginga Labs)",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "demo": "node cli.mjs"
+  }
+}
