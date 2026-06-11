@@ -66,6 +66,13 @@ export function decidir(mundo, id, opcao, efeitos = {}) {
     mundo.estado.meninoNoElenco = true;
     mundo.alianca.elenco.push(mundo.menino);
   }
+  if (efeitos.venderMenino) {
+    mundo.estado.meninoNoElenco = false;
+    mundo.estado.meninoVendido = true;
+    const i = mundo.alianca.elenco.indexOf(mundo.menino);
+    if (i >= 0) mundo.alianca.elenco.splice(i, 1);
+  }
+  if (efeitos.meninoProRival) mundo.estado.meninoNoRival = true;
   if (efeitos.perderGoleiro) {
     const melhor = mundo.alianca.elenco
       .filter((j) => j.posicao === "GOL")

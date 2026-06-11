@@ -3,12 +3,14 @@
 
 import { armarAceleracao, fala, limpar, continuar, escolher } from "./maquina.mjs";
 import { criarMundo, decidir } from "./mundo.mjs";
-import { montarCampeonato, jogarPartida, criarDegola, atualizarDegola, lerDegola } from "./campeonato.mjs";
-import { escolher as sortear } from "../src/rng.mjs";
+import { montarCampeonato, jogarPartida, jogarTrecho, criarDegola, atualizarDegola, lerDegola, desfechoDegola } from "./campeonato.mjs";
+import { escolher as sortear, entre } from "../src/rng.mjs";
 import { ATO0 } from "./roteiro/ato0.mjs";
 import { ATO1 } from "./roteiro/ato1.mjs";
 import { ABERTURA_ATO2, ABERTURAS_RODADA, PRE_JOGO, MANCHETES, DEGOLA, PRESIDENTE } from "./roteiro/ato2.mjs";
 import { EVENTOS } from "./roteiro/eventos.mjs";
+import { ABERTURA_ATO3, EMPRESARIO, FANTASMA, PRE_FINAL, INTERVALO, AOS_80, APITO_FINAL } from "./roteiro/ato3.mjs";
+import { FINAIS, TOTAL_FINAIS } from "./roteiro/finais.mjs";
 
 const palco = document.getElementById("palco");
 armarAceleracao(palco);
@@ -121,6 +123,83 @@ async function tocarRodada(numero, adversario) {
   await continuar(palco, "Próxima semana");
 }
 
+// ── Ato 3: o dilema final ─────────────────────────────────────────────
+
+async function intervencao(momento) {
+  await fala(palco, momento.pergunta);
+  return escolher(palco, momento.opcoes);
+}
+
+async function tocarFinal(adversario) {
+  limpar(palco);
+  extras = { ...extras, adversario: adversario.nome };
+  await tocarCenas(ABERTURA_ATO3);
+
+  if (mundo.estado.meninoNoElenco) {
+    // a proposta cresce com a exposição: o empresário cobra pelo que viu
+    const proposta = 60000 + Math.max(0, mundo.estado.exposicao) * 15000 + entre(mundo.rng, 0, 9) * 1000;
+    extras.proposta = proposta.toLocaleString("pt-BR");
+    await tocarCenas(EMPRESARIO);
+    if (mundo.estado.meninoVendido) decidir(mundo, null, null, { caixa: proposta });
+    await continuar(palco, "Ir pra final");
+  } else if (mundo.estado.meninoNoRival) {
+    adversario.elenco.push(mundo.menino); // ele te espera do outro lado
+    await tocarCenas(FANTASMA);
+  }
+
+  limpar(palco);
+  await tocarCenas(PRE_FINAL);
+
+  // a final em três trechos: 1º tempo, até os 80, e o resto da vida
+  let placar = undefined;
+  let golsDoMenino = 0;
+  let resultado;
+  const trechos = [
+    { minutoInicio: 1, minutoFim: 45, abertura: true },
+    { minutoInicio: 46, minutoFim: 80, momento: INTERVALO },
+    { minutoInicio: 81, minutoFim: 90, encerramento: true, momento: AOS_80 },
+  ];
+  for (const trecho of trechos) {
+    const tatica = trecho.momento ? await intervencao(trecho.momento) : "equilibrio";
+    resultado = jogarTrecho(mundo, adversario, { ...trecho, tatica, placar, mandante: false });
+    placar = { [adversario.sigla]: resultado.golsCasa, ALI: resultado.golsFora };
+    golsDoMenino += resultado.golsDoMenino;
+    for (const linha of resultado.narracao) {
+      const p = await fala(palco, linha, "radio");
+      if (/GO+L/.test(linha)) p.classList.add("gol");
+    }
+  }
+
+  await tocarCenas(APITO_FINAL);
+  return { resultado, golsDoMenino };
+}
+
+async function tocarEpilogo({ resultado, golsDoMenino }) {
+  const { escapou } = desfechoDegola(mundo, degola, resultado.saldo);
+
+  await fala(
+    palco,
+    `A conta final da degola: **Aliança ${degola.pontosAlianca}, ${degola.rivalCurto} ${degola.pontosRival}**.`
+  );
+
+  const resumo = {
+    escapou,
+    trilho: mundo.estado.meninoNoRival ? "rival" : mundo.estado.meninoVendido ? "vendeu" : "segurou",
+    golDoMenino: golsDoMenino > 0,
+    moralMenino: mundo.menino.moral,
+    exposicao: mundo.estado.exposicao,
+  };
+  const final = FINAIS.find((f) => f.condicao(resumo)) ?? FINAIS[FINAIS.length - 1];
+
+  limpar(palco);
+  await fala(palco, escapou ? "**O ALIANÇA FICA NA PRIMEIRA DIVISÃO.**" : "**O ALIANÇA ESTÁ REBAIXADO.**");
+  await tocarCenas(final.cenas);
+  await fala(palco, `*${final.titulo} — Final ${final.n} de ${TOTAL_FINAIS} · seed ${mundo.seed}*`);
+  // Próximo PR: o card compartilhável nasce daqui (final.card).
+  await continuar(palco, "Jogar de novo");
+  location.reload();
+}
+
 async function principal() {
   await tocarCenas(ATO0);
   limpar(palco);
@@ -133,13 +212,8 @@ async function principal() {
     await tocarRodada(rodada, adversarios[rodada - 1]);
   }
 
-  limpar(palco);
-  // Próximo PR: Ato 3 — o dilema final contra o Atlético do investidor.
-  await fala(palco, "*— fim do trecho disponível nesta versão —*");
-  await fala(
-    palco,
-    "Resta **uma rodada**. O adversário: o clube do investidor. E o telefone do empresário já tá tocando."
-  );
+  const final = await tocarFinal(adversarios[3]);
+  await tocarEpilogo(final);
 }
 
 principal();

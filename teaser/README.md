@@ -28,6 +28,8 @@ roteiro/          SÓ texto — é aqui que o diretor criativo revisa
   ato1.mjs        a descoberta + Decisão 1
   ato2.mjs        moldura do loop: rodadas, manchetes, presidente
   eventos.mjs     banco de eventos (decisões de cada rodada)
+  ato3.mjs        o empresário, a mãe, a final e as intervenções
+  finais.mjs      os epílogos (Final N de 11) + frases do card
 ```
 
 ## Convenção

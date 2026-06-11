@@ -8,6 +8,9 @@ import { ATO0 } from "./roteiro/ato0.mjs";
 import { ATO1 } from "./roteiro/ato1.mjs";
 import { ABERTURA_ATO2, ABERTURAS_RODADA, PRE_JOGO, MANCHETES, DEGOLA, PRESIDENTE } from "./roteiro/ato2.mjs";
 import { EVENTOS } from "./roteiro/eventos.mjs";
+import { ABERTURA_ATO3, EMPRESARIO, FANTASMA, PRE_FINAL, INTERVALO, AOS_80, APITO_FINAL } from "./roteiro/ato3.mjs";
+import { FINAIS, TOTAL_FINAIS } from "./roteiro/finais.mjs";
+import { TATICAS, jogarTrecho, desfechoDegola } from "./campeonato.mjs";
 
 const TIPOS = new Set(["fala", "radio", "ficha", "continuar", "escolha"]);
 
@@ -45,6 +48,35 @@ for (const grupo of [ABERTURAS_RODADA, PRE_JOGO, ...Object.values(MANCHETES)]) {
 }
 assert.ok(DEGOLA.respira && DEGOLA.fio && DEGOLA.afundando, "leituras da degola incompletas");
 assert.ok(PRESIDENTE.vitoria && PRESIDENTE.empate && PRESIDENTE.derrota, "falas do presidente incompletas");
+
+// Ato 3: roteiros válidos, táticas das intervenções existem no motor.
+validarCenas(ABERTURA_ATO3, "ABERTURA_ATO3");
+validarCenas(EMPRESARIO, "EMPRESARIO");
+validarCenas(FANTASMA, "FANTASMA");
+validarCenas(PRE_FINAL, "PRE_FINAL");
+validarCenas(APITO_FINAL, "APITO_FINAL");
+for (const momento of [INTERVALO, AOS_80]) {
+  assert.ok(momento.opcoes.length >= 2);
+  for (const op of momento.opcoes) {
+    assert.ok(TATICAS[op.id], `tática "${op.id}" da intervenção não existe no campeonato`);
+  }
+}
+
+// Finais: TODA combinação de estado cai em exatamente um final (o primeiro que casar).
+assert.ok(TOTAL_FINAIS >= 8 && TOTAL_FINAIS <= 12, "meta do design: 8–12 finais");
+for (const f of FINAIS) {
+  assert.ok(f.n && f.titulo && f.card && f.cenas.length > 0, `final ${f.n} incompleto`);
+  validarCenas(f.cenas, `FINAIS/${f.n}`);
+}
+for (const escapou of [true, false])
+  for (const trilho of ["segurou", "vendeu", "rival"])
+    for (const golDoMenino of [true, false])
+      for (const moralMenino of [5, 12, 16])
+        for (const exposicao of [-1, 0, 2]) {
+          const resumo = { escapou, trilho, golDoMenino, moralMenino, exposicao };
+          const casados = FINAIS.filter((f) => f.condicao(resumo));
+          assert.ok(casados.length >= 1, `nenhum final casa com ${JSON.stringify(resumo)}`);
+        }
 
 // Mundo: reproduzível por seed, e o menino tem a ficha do design doc.
 const a = criarMundo(1970);
@@ -116,6 +148,36 @@ for (let variante = 0; variante < 8; variante++) {
   assert.ok(m.estado.caixa > -50000, `variante ${variante}: caixa explodiu (${m.estado.caixa})`);
   const goleiros = m.alianca.elenco.filter((j) => j.posicao === "GOL");
   assert.ok(goleiros.length >= 1, `variante ${variante}: time sem goleiro`);
+
+  // Ato 3 headless: final em três trechos, placar encadeado bate no fim.
+  const finalAdv = advs[3];
+  if (m.estado.meninoNoRival) finalAdv.elenco.push(m.menino);
+  if (m.estado.meninoNoElenco && variante % 2 === 0) {
+    percorrer(EMPRESARIO, m, (c) => c.opcoes[variante % c.opcoes.length]);
+  }
+  let placar;
+  let golsTrechos = 0;
+  let r3;
+  const taticas = ["equilibrio", "pra_cima", "fechado"];
+  for (const [i, janela] of [[1, 45], [46, 80], [81, 90]].entries()) {
+    r3 = jogarTrecho(m, finalAdv, {
+      minutoInicio: janela[0], minutoFim: janela[1], placar, mandante: false,
+      tatica: taticas[(variante + i) % 3], abertura: i === 0, encerramento: i === 2,
+    });
+    placar = { [finalAdv.sigla]: r3.golsCasa, ALI: r3.golsFora };
+    golsTrechos += r3.goleadores.length;
+  }
+  assert.equal(r3.golsCasa + r3.golsFora, golsTrechos, `variante ${variante}: placar dos trechos não bate com os gols`);
+  const { escapou } = desfechoDegola(m, { pontosAlianca: 4, pontosRival: 4, rivalCurto: "X" }, r3.saldo);
+  assert.equal(typeof escapou, "boolean");
+  const resumo = {
+    escapou,
+    trilho: m.estado.meninoNoRival ? "rival" : m.estado.meninoVendido ? "vendeu" : "segurou",
+    golDoMenino: r3.golsDoMenino > 0,
+    moralMenino: m.menino.moral,
+    exposicao: m.estado.exposicao,
+  };
+  assert.ok(FINAIS.some((f) => f.condicao(resumo)), `variante ${variante}: run real sem final`);
 }
 
 console.log("teaser/teste.mjs: tudo verde ✔");

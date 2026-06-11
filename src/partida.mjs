@@ -5,7 +5,7 @@
 import { entre, escolher } from "./rng.mjs";
 import { escalarTitulares } from "./jogadores.mjs";
 
-function forcas(clube) {
+function forcas(clube, bonus = {}) {
   const titulares = escalarTitulares(clube.elenco);
   const frente = titulares.filter((j) => ["MEI", "PON", "ATA"].includes(j.posicao));
   const fundo = titulares.filter((j) => ["ZAG", "LAT", "VOL"].includes(j.posicao));
@@ -14,8 +14,8 @@ function forcas(clube) {
 
   return {
     titulares,
-    ataque: media(frente, (j) => (j.atributos.finalizacao + j.atributos.drible + j.atributos.ginga) / 3),
-    defesa: media(fundo, (j) => (j.atributos.desarme + j.atributos.raca) / 2),
+    ataque: media(frente, (j) => (j.atributos.finalizacao + j.atributos.drible + j.atributos.ginga) / 3) + (bonus.ataque ?? 0),
+    defesa: media(fundo, (j) => (j.atributos.desarme + j.atributos.raca) / 2) + (bonus.defesa ?? 0),
     goleiro: goleiro.atributos.defesa,
     frente,
     goleiroJogador: goleiro,
@@ -66,22 +66,32 @@ function preencher(texto, dados) {
   return texto.replace(/\{(\w+)\}/g, (_, k) => dados[k] ?? `{${k}}`);
 }
 
+// Opções além de `narrar`: a partida pode ser simulada em TRECHOS
+// (pro teaser parar no intervalo e aos 80' pra intervenção tática):
+//   minutoInicio/minutoFim  janela do trecho (padrão 1–90)
+//   placarInicial           { [sigla]: gols } herdado do trecho anterior
+//   bonusCasa/bonusFora     { ataque, defesa } da postura tática
+//   abertura/encerramento   narrar o "começa o jogo" / "fim de jogo"
 export function simularPartida(rng, casa, fora, opcoes = {}) {
   const narrar = opcoes.narrar ?? false;
-  const fCasa = forcas(casa);
-  const fFora = forcas(fora);
+  const minutoInicio = opcoes.minutoInicio ?? 1;
+  const minutoFim = opcoes.minutoFim ?? 90;
+  const fCasa = forcas(casa, opcoes.bonusCasa);
+  const fFora = forcas(fora, opcoes.bonusFora);
   const narracao = [];
 
-  if (narrar) {
+  if (narrar && (opcoes.abertura ?? true)) {
     narracao.push(preencher(escolher(rng, ABERTURAS), {
       casa: casa.nome, fora: fora.nome, estadio: `o caldeirão de ${casa.curto}`,
     }));
   }
 
-  const placar = { [casa.sigla]: 0, [fora.sigla]: 0 };
+  const placar = { [casa.sigla]: 0, [fora.sigla]: 0, ...opcoes.placarInicial };
   const goleadores = [];
-  const totalLances = entre(rng, 7, 11);
-  const minutos = Array.from({ length: totalLances }, () => entre(rng, 1, 90)).sort((a, b) => a - b);
+  // lances proporcionais à janela: jogo inteiro mantém os 7–11 de sempre
+  const fracao = (minutoFim - minutoInicio + 1) / 90;
+  const totalLances = Math.max(2, Math.round(entre(rng, 7, 11) * fracao));
+  const minutos = Array.from({ length: totalLances }, () => entre(rng, minutoInicio, minutoFim)).sort((a, b) => a - b);
 
   for (let i = 0; i < totalLances; i++) {
     const minuto = minutos[i];
@@ -135,7 +145,7 @@ export function simularPartida(rng, casa, fora, opcoes = {}) {
     }
   }
 
-  if (narrar) {
+  if (narrar && (opcoes.encerramento ?? true)) {
     narracao.push(
       `FIM DE JOGO! ${casa.nome} ${placar[casa.sigla]} x ${placar[fora.sigla]} ${fora.nome}. ` +
       (placar[casa.sigla] === placar[fora.sigla]

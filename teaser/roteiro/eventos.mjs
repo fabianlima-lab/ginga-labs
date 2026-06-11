@@ -182,7 +182,7 @@ export const EVENTOS = [
           recusar_de_novo: [
             {
               tipo: "fala",
-              efeitos: { moralElenco: 2, exposicao: 1 },
+              efeitos: { moralElenco: 2, exposicao: 1, meninoProRival: true },
               texto:
                 "Você sustenta a decisão na frente do presidente, que sai batendo a porta. Sexta-feira, o jornal anuncia: o menino assinou com o **Atlético do investidor** — exatamente o adversário da última rodada. O destino tem um senso de humor específico.",
             },

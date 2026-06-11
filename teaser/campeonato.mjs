@@ -18,16 +18,11 @@ export function montarCampeonato(mundo) {
   );
 }
 
-/**
- * Joga uma rodada: aplica o efeito da moral do menino nos atributos
- * (frieza sobe com confiança, despenca abalado), simula com narração,
- * restaura. Devolve o resultado + leitura do jogo.
- */
-export function jogarPartida(mundo, adversario, { mandante = true } = {}) {
-  const { rng, alianca, menino, estado } = mundo;
-
+// A moral do menino entra em campo: confiança vira frieza, abalo apaga a ginga.
+function comMoralAplicada(mundo, jogar) {
+  const { menino, estado } = mundo;
   const originais = { ...menino.atributos };
-  if (estado.meninoNoElenco) {
+  if (estado.meninoNoElenco || estado.meninoNoRival) {
     if (menino.moral >= 14) {
       menino.atributos.frieza = Math.min(20, menino.atributos.frieza + 2);
       menino.atributos.finalizacao = Math.min(20, menino.atributos.finalizacao + 1);
@@ -36,18 +31,59 @@ export function jogarPartida(mundo, adversario, { mandante = true } = {}) {
       menino.atributos.ginga = Math.max(1, menino.atributos.ginga - 1);
     }
   }
+  try {
+    return jogar();
+  } finally {
+    menino.atributos = originais;
+  }
+}
 
-  const casa = mandante ? alianca : adversario;
-  const fora = mandante ? adversario : alianca;
-  const resultado = simularPartida(rng, casa, fora, { narrar: true });
-  menino.atributos = originais;
-
+function lerResultado(mundo, resultado, mandante) {
   const golsAli = mandante ? resultado.golsCasa : resultado.golsFora;
   const golsAdv = mandante ? resultado.golsFora : resultado.golsCasa;
   const saldo = golsAli > golsAdv ? "vitoria" : golsAli < golsAdv ? "derrota" : "empate";
-  const golsDoMenino = resultado.goleadores.filter((g) => g.nome === menino.nome).length;
-
+  const golsDoMenino = resultado.goleadores.filter((g) => g.nome === mundo.menino.nome).length;
   return { ...resultado, golsAli, golsAdv, saldo, golsDoMenino };
+}
+
+/** Joga uma rodada inteira de uma vez (Ato 2). */
+export function jogarPartida(mundo, adversario, { mandante = true } = {}) {
+  return comMoralAplicada(mundo, () => {
+    const casa = mandante ? mundo.alianca : adversario;
+    const fora = mandante ? adversario : mundo.alianca;
+    const resultado = simularPartida(mundo.rng, casa, fora, { narrar: true });
+    return lerResultado(mundo, resultado, mandante);
+  });
+}
+
+// Posturas táticas da final: bônus aplicado só ao lado do Aliança.
+export const TATICAS = {
+  pra_cima: { ataque: 2, defesa: -1.5 },
+  equilibrio: {},
+  fechado: { ataque: -1.5, defesa: 2 },
+};
+
+/**
+ * Joga um TRECHO da final (Ato 3): a partida para no intervalo e aos 80'
+ * pra intervenção tática. `placar` encadeia os trechos.
+ */
+export function jogarTrecho(mundo, adversario, opcoes) {
+  const { mandante = false, minutoInicio, minutoFim, placar, tatica = "equilibrio", abertura = false, encerramento = false } = opcoes;
+  return comMoralAplicada(mundo, () => {
+    const casa = mandante ? mundo.alianca : adversario;
+    const fora = mandante ? adversario : mundo.alianca;
+    const bonus = TATICAS[tatica];
+    const resultado = simularPartida(mundo.rng, casa, fora, {
+      narrar: true,
+      minutoInicio,
+      minutoFim,
+      placarInicial: placar,
+      abertura,
+      encerramento,
+      ...(mandante ? { bonusCasa: bonus } : { bonusFora: bonus }),
+    });
+    return lerResultado(mundo, resultado, mandante);
+  });
 }
 
 /** Tabela-duelo: Aliança contra o outro afundado, o {rival}. */
@@ -70,6 +106,16 @@ export function atualizarDegola(mundo, degola, saldo) {
   const sorteio = mundo.rng();
   degola.pontosRival += sorteio < 0.3 ? 3 : sorteio < 0.62 ? 1 : 0;
   return degola;
+}
+
+/** A última rodada do rival acontece longe — e decide tanto quanto a sua. */
+export function desfechoDegola(mundo, degola, saldoAlianca) {
+  degola.pontosAlianca += PONTOS[saldoAlianca];
+  const sorteio = mundo.rng();
+  const saldoRival = sorteio < 0.3 ? "vitoria" : sorteio < 0.62 ? "empate" : "derrota";
+  degola.pontosRival += PONTOS[saldoRival];
+  // empate em pontos: cai o Aliança — o critério é o absurdo de sempre
+  return { escapou: degola.pontosAlianca > degola.pontosRival, saldoRival };
 }
 
 export function lerDegola(degola) {
