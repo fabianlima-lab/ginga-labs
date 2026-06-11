@@ -123,6 +123,42 @@ button.continuar {
 }
 button.continuar:hover { filter: brightness(1.1); }
 
+/* ── tela final: o card e os convites ─────────────────── */
+
+.card-final {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--apagado);
+  margin: 1rem 0;
+}
+
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.ctas a, .ctas button {
+  font: inherit;
+  font-size: 0.85em;
+  color: var(--papel);
+  background: none;
+  border: 1px solid var(--apagado);
+  border-radius: 6px;
+  padding: 0.55em 1.1em;
+  text-decoration: none;
+  cursor: pointer;
+}
+.ctas a:hover, .ctas button:hover { border-color: var(--destaque); color: var(--destaque); }
+.ctas .principal {
+  background: var(--destaque);
+  color: var(--fundo);
+  font-weight: 700;
+  border-color: var(--destaque);
+}
+.ctas .principal:hover { color: var(--fundo); filter: brightness(1.1); }
+
 /* a tela inteira aceita toque pra acelerar o texto */
 #palco.acelera-toque { cursor: pointer; }
 

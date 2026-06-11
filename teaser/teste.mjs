@@ -180,4 +180,11 @@ for (let variante = 0; variante < 8; variante++) {
   assert.ok(FINAIS.some((f) => f.condicao(resumo)), `variante ${variante}: run real sem final`);
 }
 
+// Config do card: campos presentes; frases de card cabem num card.
+const { CONFIG } = await import("./config.mjs");
+assert.ok(CONFIG.nomeJogo && CONFIG.url, "config do card incompleta");
+for (const f of FINAIS) {
+  assert.ok(f.card.length <= 140, `card do final ${f.n} longo demais (${f.card.length})`);
+}
+
 console.log("teaser/teste.mjs: tudo verde ✔");

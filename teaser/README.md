@@ -19,8 +19,10 @@ npx serve .            # ou: python3 -m http.server
 index.html        casca única (PT-BR, mobile-first)
 estilo.css        tipografia é a arte: tokens, rádio, ficha, escolhas
 maquina.mjs       máquina de texto (digitação, toque acelera, escolhas)
+config.mjs        nome, URL e links externos (placeholders do diretor)
 mundo.mjs         o Aliança, o menino e o estado da run (usa ../src)
 campeonato.mjs    adversários, partidas e a conta da degola
+card.mjs          o card compartilhável (canvas 1080×1080 + Web Share)
 app.mjs           orquestra as cenas
 teste.mjs         valida mundo + roteiros (node teaser/teste.mjs)
 roteiro/          SÓ texto — é aqui que o diretor criativo revisa

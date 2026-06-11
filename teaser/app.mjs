@@ -11,6 +11,8 @@ import { ABERTURA_ATO2, ABERTURAS_RODADA, PRE_JOGO, MANCHETES, DEGOLA, PRESIDENT
 import { EVENTOS } from "./roteiro/eventos.mjs";
 import { ABERTURA_ATO3, EMPRESARIO, FANTASMA, PRE_FINAL, INTERVALO, AOS_80, APITO_FINAL } from "./roteiro/ato3.mjs";
 import { FINAIS, TOTAL_FINAIS } from "./roteiro/finais.mjs";
+import { desenharCard, compartilharCard } from "./card.mjs";
+import { CONFIG } from "./config.mjs";
 
 const palco = document.getElementById("palco");
 armarAceleracao(palco);
@@ -194,10 +196,63 @@ async function tocarEpilogo({ resultado, golsDoMenino }) {
   limpar(palco);
   await fala(palco, escapou ? "**O ALIANÇA FICA NA PRIMEIRA DIVISÃO.**" : "**O ALIANÇA ESTÁ REBAIXADO.**");
   await tocarCenas(final.cenas);
-  await fala(palco, `*${final.titulo} — Final ${final.n} de ${TOTAL_FINAIS} · seed ${mundo.seed}*`);
-  // Próximo PR: o card compartilhável nasce daqui (final.card).
-  await continuar(palco, "Jogar de novo");
-  location.reload();
+  await telaFinal(final, escapou);
+}
+
+// ── A tela final: o card compartilhável e os convites ────────────────
+
+async function telaFinal(final, escapou) {
+  const dados = {
+    tituloFinal: final.titulo,
+    fraseCard: final.card,
+    n: final.n,
+    total: TOTAL_FINAIS,
+    seed: mundo.seed,
+    escapou,
+  };
+
+  await fala(palco, `**${final.titulo}** — Final ${final.n} de ${TOTAL_FINAIS}.`);
+
+  const canvas = desenharCard(dados);
+  const img = document.createElement("img");
+  img.className = "card-final";
+  img.alt = `Card da run: ${final.titulo}, Final ${final.n} de ${TOTAL_FINAIS}`;
+  img.src = canvas.toDataURL("image/png");
+  palco.appendChild(img);
+
+  await fala(palco, "*Isso foi um domingo. O jogo completo é a carreira inteira.*");
+
+  const ctas = document.createElement("div");
+  ctas.className = "ctas";
+
+  const botaoShare = document.createElement("button");
+  botaoShare.className = "principal";
+  botaoShare.textContent = "Compartilhar o meu final";
+  botaoShare.addEventListener("click", () => compartilharCard(canvas, dados));
+  ctas.appendChild(botaoShare);
+
+  const botaoDeNovo = document.createElement("button");
+  botaoDeNovo.textContent = "Jogar de novo";
+  botaoDeNovo.addEventListener("click", () => location.reload());
+  ctas.appendChild(botaoDeNovo);
+
+  const links = [
+    ["Wishlist na Steam", CONFIG.linkWishlist],
+    ["Entrar na lista", CONFIG.linkLista],
+    ["Discord", CONFIG.linkDiscord],
+  ];
+  for (const [rotulo, href] of links) {
+    if (!href) continue; // só aparece quando o canal existir (config.mjs)
+    const a = document.createElement("a");
+    a.textContent = rotulo;
+    a.href = href;
+    a.target = "_blank";
+    a.rel = "noopener";
+    ctas.appendChild(a);
+  }
+
+  palco.appendChild(ctas);
+  ctas.scrollIntoView({ block: "end", behavior: "smooth" });
 }
 
 async function principal() {
