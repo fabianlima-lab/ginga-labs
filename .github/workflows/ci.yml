@@ -1,0 +1,23 @@
+name: CI
+on:
+  push:
+    branches: ["main", "claude/**"]
+  pull_request:
+
+jobs:
+  testes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Sintaxe dos módulos
+        run: |
+          for f in src/*.mjs teaser/*.mjs teaser/roteiro/*.mjs cli.mjs; do
+            node --check "$f"
+          done
+      - name: Testes do teaser
+        run: node teaser/teste.mjs
+      - name: Demo do CLI roda
+        run: node cli.mjs 1970 > /dev/null
