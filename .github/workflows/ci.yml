@@ -21,3 +21,19 @@ jobs:
         run: node teaser/teste.mjs
       - name: Demo do CLI roda
         run: node cli.mjs 1970 > /dev/null
+
+  trailer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: trailer/package-lock.json
+      - name: Instalar dependências
+        working-directory: trailer
+        run: npm ci
+      - name: Bundle compila e composições existem
+        working-directory: trailer
+        run: npx remotion compositions src/index.jsx

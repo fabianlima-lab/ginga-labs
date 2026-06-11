@@ -1,0 +1,20 @@
+{
+  "name": "varzea-trailer",
+  "version": "1.0.0",
+  "description": "Trailer do teaser — renderizado por código (Remotion)",
+  "scripts": {
+    "studio": "remotion studio src/index.jsx",
+    "render": "remotion render src/index.jsx Principal40s ../out/trailer-40s.mp4",
+    "still": "remotion still src/index.jsx Principal40s ../out/trailer-frame.png"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@remotion/cli": "^4.0.475",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "remotion": "^4.0.475"
+  },
+  "private": true
+}
