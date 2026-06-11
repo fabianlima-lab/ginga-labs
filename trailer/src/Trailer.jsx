@@ -173,8 +173,8 @@ const Lance = () => {
     { texto: "PASSOU POR DOIS...", em: s(1.6), tamanho: 140 },
     { texto: "BATEEEEU...", em: s(3.2), tamanho: 180 },
   ];
-  const inicioSilencio = s(4.8);
-  const inicioGol = s(5.3);
+  const inicioSilencio = s(5.05); // a locução do lance tem 5,04s: morre aqui
+  const inicioGol = s(5.55);
 
   // a prancheta acompanha as pancadas: o giz dribla junto com o locutor
   const progresso = interpolate(
@@ -331,17 +331,17 @@ export const Trailer = () => (
       <Audio src={som("locucao-narracao.mp3")} volume={0.95} />
       <Audio src={som("sfx-surdo-longe.mp3")} volume={0.2} />
     </Sequence>
-    {/* 20–24.8s: o locutor explode (a locução tem 4,9s: morre no corte seco) */}
-    <Sequence from={s(20)} durationInFrames={s(4.9)}>
+    {/* 20–25.05s: o locutor explode (a locução tem 5,04s: morre no corte seco) */}
+    <Sequence from={s(20)} durationInFrames={s(5.05)}>
       <Audio src={som("locucao-lance.mp3")} volume={1} />
     </Sequence>
-    {/* 24.8–25.3s: SILÊNCIO ABSOLUTO (nenhuma faixa toca aqui) */}
-    {/* 25.3s: GOL + torcida explodindo, segue sob as decisões e corta aos 34s */}
-    <Sequence from={s(25.3)} durationInFrames={s(2.1)}>
+    {/* 25.05–25.55s: SILÊNCIO ABSOLUTO (nenhuma faixa toca aqui) */}
+    {/* 25.55s: GOL + torcida explodindo, segue sob as decisões e corta aos 34s */}
+    <Sequence from={s(25.55)} durationInFrames={s(1.9)}>
       <Audio src={som("locucao-gol.mp3")} volume={1} />
     </Sequence>
-    <Sequence from={s(25.3)} durationInFrames={s(8.7)}>
-      <Audio src={som("sfx-torcida.mp3")} volume={(f) => interpolate(f, [0, s(0.4), s(7.7), s(8.7)], [0.9, 0.75, 0.65, 0])} />
+    <Sequence from={s(25.55)} durationInFrames={s(8.45)}>
+      <Audio src={som("sfx-torcida.mp3")} volume={(f) => interpolate(f, [0, s(0.4), s(7.4), s(8.45)], [0.9, 0.75, 0.65, 0])} />
     </Sequence>
     {/* 34–40s: só o surdo, como coração batendo */}
     <Sequence from={s(34)} durationInFrames={s(6)}>
