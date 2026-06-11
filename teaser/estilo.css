@@ -1,0 +1,132 @@
+/* Várzea — teaser jogável. Tudo é texto: a tipografia é a arte. */
+
+:root {
+  --fundo: #0d0f0c;
+  --papel: #f2ead8;
+  --apagado: #9a937f;
+  --destaque: #ffd447;     /* amarelo de placa de bar */
+  --grama: #2e7d32;
+  --perigo: #c62828;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --mono: "SF Mono", "Cascadia Mono", Consolas, "Liberation Mono", monospace;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--fundo);
+  color: var(--papel);
+  font-family: var(--serif);
+  font-size: clamp(17px, 2.4vw, 21px);
+  line-height: 1.55;
+}
+
+#palco {
+  max-width: 38rem;
+  margin: 0 auto;
+  padding: 1.25rem 1.25rem calc(2rem + env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  justify-content: center;
+}
+
+.noscript { color: var(--apagado); text-align: center; }
+
+/* ── blocos de texto ───────────────────────────────────── */
+
+.fala { margin: 0 0 1.1em; white-space: pre-wrap; }
+.fala strong, .fala b { color: var(--destaque); font-weight: 700; }
+.fala em { color: var(--apagado); font-style: italic; }
+
+.radio {
+  font-family: var(--mono);
+  font-size: 0.86em;
+  border-left: 3px solid var(--destaque);
+  padding-left: 0.9em;
+  margin: 0 0 1.1em;
+  white-space: pre-wrap;
+}
+
+.gol {
+  color: var(--destaque);
+  font-weight: 800;
+  font-size: 1.35em;
+  letter-spacing: 0.02em;
+  animation: tremor 0.35s ease-in-out 2;
+}
+
+@keyframes tremor {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-3px); }
+  75% { transform: translateX(3px); }
+}
+
+/* cursor da máquina de escrever */
+.digitando::after {
+  content: "▌";
+  color: var(--destaque);
+  animation: pisca 0.9s steps(1) infinite;
+}
+@keyframes pisca { 50% { opacity: 0; } }
+
+/* ── ficha de atributos ────────────────────────────────── */
+
+.ficha {
+  font-family: var(--mono);
+  font-size: 0.82em;
+  border: 1px solid var(--apagado);
+  border-radius: 6px;
+  padding: 0.9em 1.1em;
+  margin: 0 0 1.2em;
+}
+.ficha dt { float: left; clear: left; color: var(--apagado); text-transform: uppercase; letter-spacing: 0.08em; }
+.ficha dd { margin: 0 0 0.25em 7.5em; font-weight: 700; }
+.ficha dd.alto { color: var(--destaque); }
+.ficha dd.baixo { color: var(--perigo); }
+
+/* ── escolhas ──────────────────────────────────────────── */
+
+.escolhas { display: flex; flex-direction: column; gap: 0.7rem; margin-top: 1.4rem; }
+
+button.escolha {
+  font: inherit;
+  text-align: left;
+  background: none;
+  color: var(--papel);
+  border: 1px solid var(--apagado);
+  border-radius: 6px;
+  padding: 0.8em 1em;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+button.escolha:hover, button.escolha:focus-visible {
+  border-color: var(--destaque);
+  background: rgba(255, 212, 71, 0.07);
+  outline: none;
+}
+button.escolha .rotulo { color: var(--destaque); font-family: var(--mono); font-size: 0.78em; display: block; margin-bottom: 0.2em; }
+
+button.continuar {
+  font: inherit;
+  align-self: center;
+  background: var(--destaque);
+  color: var(--fundo);
+  font-weight: 700;
+  border: none;
+  border-radius: 6px;
+  padding: 0.7em 2.2em;
+  margin-top: 1.6rem;
+  cursor: pointer;
+}
+button.continuar:hover { filter: brightness(1.1); }
+
+/* a tela inteira aceita toque pra acelerar o texto */
+#palco.acelera-toque { cursor: pointer; }
+
+@media (prefers-reduced-motion: reduce) {
+  .gol { animation: none; }
+  .digitando::after { animation: none; }
+}
