@@ -4,6 +4,7 @@
 // comentários de cada cena pra trilha/locução encaixarem depois.
 
 import { AbsoluteFill, Sequence, useCurrentFrame, interpolate, spring, useVideoConfig } from "remotion";
+import { Pelicula, Prancheta, VuRadio, Placar } from "./graficos.jsx";
 
 export const FPS = 30;
 const s = (seg) => Math.round(seg * FPS);
@@ -89,7 +90,8 @@ const Ficha = () => {
   const zoom = interpolate(frame, [0, s(6)], [1, 1.18], { extrapolateRight: "clamp" });
   return (
     <Tela>
-      <div style={{ transform: `scale(${zoom})` }}>
+      {/* a ficha é amassada: levemente torta, como saiu do bolso do olheiro */}
+      <div style={{ transform: `scale(${zoom}) rotate(-1.6deg)` }}>
         <div style={{ fontFamily: MONO, fontSize: 38, color: COR.apagado, marginBottom: 30, textAlign: "center" }}>
           ficha do olheiro · escrita a lápis · 16 anos
         </div>
@@ -134,6 +136,10 @@ const Narracao = () => {
   const frame = useCurrentFrame();
   return (
     <Tela style={{ alignItems: "flex-start" }}>
+      {/* a transmissão de rádio respirando no rodapé */}
+      <div style={{ position: "absolute", bottom: 90, left: 0, right: 0, display: "flex", justifyContent: "center", opacity: 0.55 }}>
+        <VuRadio intensidade={interpolate(frame, [0, s(8)], [0.5, 1])} />
+      </div>
       <div style={{ borderLeft: `6px solid ${COR.destaque}`, paddingLeft: 60 }}>
         {LINHAS_NARRACAO.map((linha, i) => {
           const aparece = spring({ frame: frame - s(2.2) * i, fps: FPS, config: { damping: 13 } });
@@ -170,11 +176,21 @@ const Lance = () => {
   const inicioSilencio = s(4.8);
   const inicioGol = s(5.3);
 
+  // a prancheta acompanha as pancadas: o giz dribla junto com o locutor
+  const progresso = interpolate(
+    frame,
+    [0, s(1.6), s(3.2), inicioSilencio, inicioGol + s(0.4)],
+    [0.08, 0.45, 0.62, 0.85, 1],
+    { extrapolateRight: "clamp" }
+  );
+
   if (frame >= inicioGol) {
     const tremor = Math.sin(frame * 2.1) * interpolate(frame, [inicioGol, inicioGol + s(1.2)], [14, 0], { extrapolateRight: "clamp" });
     const escala = spring({ frame: frame - inicioGol, fps: FPS, config: { damping: 9, stiffness: 140 } });
+    const placarAparece = spring({ frame: frame - inicioGol - s(0.8), fps: FPS, config: { damping: 13 } });
     return (
       <Tela>
+        <Prancheta progresso={progresso} opacidade={0.35} />
         <div
           style={{
             fontFamily: SERIF,
@@ -183,9 +199,14 @@ const Lance = () => {
             color: COR.destaque,
             transform: `scale(${escala}) translateX(${tremor}px)`,
             letterSpacing: "0.02em",
+            textShadow: "0 0 80px rgba(255,212,71,0.45)",
+            zIndex: 1,
           }}
         >
           GOOOOOOL
+        </div>
+        <div style={{ marginTop: 50, zIndex: 1 }}>
+          <Placar aparece={placarAparece} />
         </div>
       </Tela>
     );
@@ -197,6 +218,7 @@ const Lance = () => {
   const escala = spring({ frame: desde, fps: FPS, config: { damping: 10, stiffness: 160 } });
   return (
     <Tela>
+      <Prancheta progresso={progresso} opacidade={0.5} />
       {atual && (
         <div
           style={{
@@ -206,6 +228,8 @@ const Lance = () => {
             color: COR.papel,
             transform: `scale(${escala})`,
             textAlign: "center",
+            textShadow: "0 4px 40px rgba(0,0,0,0.8)",
+            zIndex: 1,
           }}
         >
           {atual.texto}
@@ -298,5 +322,7 @@ export const Trailer = () => (
     <Sequence from={s(28)} durationInFrames={s(6)}><Decisoes /></Sequence>
     {/* [áudio] 34–40s: música corta; só o surdo, como coração */}
     <Sequence from={s(34)} durationInFrames={s(6)}><Convite /></Sequence>
+    {/* grão de filme + vinheta por cima de tudo: uma película só */}
+    <Pelicula />
   </AbsoluteFill>
 );
