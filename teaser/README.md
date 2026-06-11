@@ -20,11 +20,14 @@ index.html        casca única (PT-BR, mobile-first)
 estilo.css        tipografia é a arte: tokens, rádio, ficha, escolhas
 maquina.mjs       máquina de texto (digitação, toque acelera, escolhas)
 mundo.mjs         o Aliança, o menino e o estado da run (usa ../src)
+campeonato.mjs    adversários, partidas e a conta da degola
 app.mjs           orquestra as cenas
 teste.mjs         valida mundo + roteiros (node teaser/teste.mjs)
 roteiro/          SÓ texto — é aqui que o diretor criativo revisa
   ato0.mjs        a abertura (30s)
   ato1.mjs        a descoberta + Decisão 1
+  ato2.mjs        moldura do loop: rodadas, manchetes, presidente
+  eventos.mjs     banco de eventos (decisões de cada rodada)
 ```
 
 ## Convenção

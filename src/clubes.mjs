@@ -5,7 +5,7 @@ import { entre, escolher } from "./rng.mjs";
 import { gerarIdentidadeClube } from "./nomes.mjs";
 import { gerarElenco } from "./jogadores.mjs";
 
-const ARQUETIPOS = [
+export const ARQUETIPOS = [
   {
     id: "gigante_decadente",
     rotulo: "Gigante decadente",

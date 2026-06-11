@@ -47,6 +47,7 @@ export function criarMundo(seed = 1 + Math.floor(Math.random() * 99999)) {
     seed,
     caixa: entre(rng, 30, 42) * 1000, // R$ fictícios — três folhas atrasadas
     moralElenco: 9,
+    exposicao: 0, // o quanto o empresário sabe do menino (pesa no Ato 3)
     escolhas: {},
     meninoNoElenco: false,
   };
@@ -60,8 +61,15 @@ export function decidir(mundo, id, opcao, efeitos = {}) {
   if (efeitos.caixa) mundo.estado.caixa += efeitos.caixa;
   if (efeitos.moralElenco) mundo.estado.moralElenco += efeitos.moralElenco;
   if (efeitos.moralMenino) mundo.menino.moral += efeitos.moralMenino;
+  if (efeitos.exposicao) mundo.estado.exposicao += efeitos.exposicao;
   if (efeitos.contratado) {
     mundo.estado.meninoNoElenco = true;
     mundo.alianca.elenco.push(mundo.menino);
+  }
+  if (efeitos.perderGoleiro) {
+    const melhor = mundo.alianca.elenco
+      .filter((j) => j.posicao === "GOL")
+      .sort((x, y) => y.geral - x.geral)[0];
+    mundo.alianca.elenco.splice(mundo.alianca.elenco.indexOf(melhor), 1);
   }
 }
