@@ -23,6 +23,7 @@ config.mjs        nome, URL e links externos (placeholders do diretor)
 mundo.mjs         o Aliança, o menino e o estado da run (usa ../src)
 campeonato.mjs    adversários, partidas e a conta da degola
 card.mjs          o card compartilhável (canvas 1080×1080 + Web Share)
+telemetria.mjs    as 4 métricas do design doc (sendBeacon plugável)
 app.mjs           orquestra as cenas
 teste.mjs         valida mundo + roteiros (node teaser/teste.mjs)
 roteiro/          SÓ texto — é aqui que o diretor criativo revisa

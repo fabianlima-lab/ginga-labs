@@ -7,4 +7,5 @@ export const CONFIG = {
   linkWishlist: null, // página da Steam ainda não criada
   linkLista: null, // formulário de e-mail ainda não criado
   linkDiscord: null, // servidor ainda não criado
+  analyticsUrl: null, // endpoint de telemetria (sendBeacon) — sem ele, só console
 };

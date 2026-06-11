@@ -13,6 +13,7 @@ import { ABERTURA_ATO3, EMPRESARIO, FANTASMA, PRE_FINAL, INTERVALO, AOS_80, APIT
 import { FINAIS, TOTAL_FINAIS } from "./roteiro/finais.mjs";
 import { desenharCard, compartilharCard } from "./card.mjs";
 import { CONFIG } from "./config.mjs";
+import { evento, contarRun } from "./telemetria.mjs";
 
 const palco = document.getElementById("palco");
 armarAceleracao(palco);
@@ -69,6 +70,7 @@ async function tocarCenas(cenas) {
     } else if (cena.tipo === "escolha") {
       const escolhida = await escolher(palco, cena.opcoes);
       decidir(mundo, cena.id, escolhida);
+      evento("decisao", { id: cena.id, opcao: escolhida });
       await tocarCenas(cena.ramos?.[escolhida] ?? []);
     }
   }
@@ -192,6 +194,7 @@ async function tocarEpilogo({ resultado, golsDoMenino }) {
     exposicao: mundo.estado.exposicao,
   };
   const final = FINAIS.find((f) => f.condicao(resumo)) ?? FINAIS[FINAIS.length - 1];
+  evento("final", { n: final.n, escapou, trilho: resumo.trilho, seed: mundo.seed });
 
   limpar(palco);
   await fala(palco, escapou ? "**O ALIANÇA FICA NA PRIMEIRA DIVISÃO.**" : "**O ALIANÇA ESTÁ REBAIXADO.**");
@@ -228,7 +231,10 @@ async function telaFinal(final, escapou) {
   const botaoShare = document.createElement("button");
   botaoShare.className = "principal";
   botaoShare.textContent = "Compartilhar o meu final";
-  botaoShare.addEventListener("click", () => compartilharCard(canvas, dados));
+  botaoShare.addEventListener("click", async () => {
+    const modo = await compartilharCard(canvas, dados);
+    evento("share", { modo, final: final.n });
+  });
   ctas.appendChild(botaoShare);
 
   const botaoDeNovo = document.createElement("button");
@@ -248,6 +254,7 @@ async function telaFinal(final, escapou) {
     a.href = href;
     a.target = "_blank";
     a.rel = "noopener";
+    a.addEventListener("click", () => evento("cta", { rotulo }));
     ctas.appendChild(a);
   }
 
@@ -256,9 +263,12 @@ async function telaFinal(final, escapou) {
 }
 
 async function principal() {
+  contarRun();
   await tocarCenas(ATO0);
+  evento("ato", { n: 0 });
   limpar(palco);
   await tocarCenas(ATO1);
+  evento("ato", { n: 1 });
   await continuar(palco, "Seguir");
 
   limpar(palco);
@@ -266,8 +276,10 @@ async function principal() {
   for (let rodada = 1; rodada <= 3; rodada++) {
     await tocarRodada(rodada, adversarios[rodada - 1]);
   }
+  evento("ato", { n: 2 });
 
   const final = await tocarFinal(adversarios[3]);
+  evento("ato", { n: 3 });
   await tocarEpilogo(final);
 }
 
