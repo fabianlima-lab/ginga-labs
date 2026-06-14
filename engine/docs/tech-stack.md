@@ -15,6 +15,18 @@ No single source is enough; we layer by purpose.
 | **Calibration** | **StatsBomb Open Data** (GitHub, free) | full event data, select comps (incl. past WCs) | backtest/calibrate the belief engine offline |
 | **Rich visuals** | **FotMob / Sofascore** (unofficial) | shot maps, heatmaps, momentum, ratings | quick visuals — ToS/scraping caution |
 | **Context** | **News RSS** (ge.globo), CBF, clubs | injuries, probable XI, quotes | agent synthesizes |
+| **BR portal** | **ge.globo** (match centre) | lineups, public match stats, analysis — Brazilian football | free; the Flamengo/Brasileirão complement to API-Football |
+| **Official WC** | **FIFA Training Centre** socials + YouTube (TSG) | qualitative tactical insight alongside the EFI reports | free; read with the EFI data |
+
+### Qualitative & learning sources (seed, don't test)
+Expert tactical-analysis accounts — **@dzi_analysis, Tactx, Hosam Adel**, etc. —
+are a free, existing source of football *knowledge and craft*. The agent reads
+them to (a) **seed soft observations**, (b) learn the vocabulary/patterns of good
+analysis, (c) calibrate the writing voice. **Discipline:** their takes enter only
+as **observations** that the agent then operationalizes and tests on real data —
+they *seed* beliefs, they never *ratify* them (an opinion is not evidence).
+Also: the **BBC 3D viewer** is a fun way for *the human* to learn the game
+(player-POV replays) — a learning aid, not a feed.
 
 ### Honest boundaries & ingestion notes
 - **FIFA EFI is delivered as reports/visuals, not a clean API.** Ingestion =

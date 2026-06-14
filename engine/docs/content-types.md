@@ -15,6 +15,8 @@ Every format is a *derivative* of the belief bank / match analysis.
 | **Pre-match post** — both formations + tactical notes | Rodrigo Coutinho | pre-match workflow + dossiers |
 | **Best XI / team-of-the-round** — players on a pitch | Lucas Gabriel | post-round aggregation |
 | **Formation / pitch graphic** | (all of the above) | **generated** — SVG pitch + positioned players (reuse the Prancheta tactical-board renderer) |
+| **Tactical-moment diagram** — a key moment as pitch + arrows (e.g. "the diagonal ten → the goal") | Tactx | **generated** SVG — our footage-free answer to the annotated clip |
+| **Prediction card** — score idea + confidence, shareable | Nurul / WC prediction pages | the belief/prediction ledger → a card (the track record makes it honest) |
 
 These need **zero broadcast footage** — no copyright exposure — and reuse
 graphics work we've already proven (Remotion/SVG).
