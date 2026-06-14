@@ -28,19 +28,12 @@ No single source is enough; we layer by purpose.
     server-side/licensed, no API/export. Emits pixels, not coordinates → only a
     **human** verification aid for the override.
 
-### R&D — DIY tracking from video (the long-tail moat)
-- **roboflow/sports** (MIT): video → player/ball detection → tracking → pitch
-  homography → **coordinates**, + team clustering. Turns broadcast into the
-  tracking metrics nobody hands us for free.
-- **Hard truth:** broadcast feeds are partial/noisy (pan-zoom-cut, players off
-  screen, occlusions), GPU-heavy, and footage is copyrighted. Far below FIFA EFI
-  quality — so **never use where official data exists**.
-- **Where it wins:** competitions with *no* data feed — Série B/C, state
-  championships, youth, várzea — where video exists but Opta/StatsBomb/FIFA
-  don't bother. That is the original Ginga Labs thesis (the football the big
-  providers ignore). Same pipeline also auto-draws overlay clips (Tier-2 content).
-- **Status: Tier 3 / R&D.** Heavy lift; the bet for *differentiated* data later,
-  not the MVP.
+### Out of scope — building our own tracking
+DIY computer-vision tracking from video (e.g. roboflow/sports) is **explicitly
+out of scope** per `charter.md`: we *leverage* existing sources, we don't
+*manufacture* data. Noted only so the decision is on the record — where a
+competition has no good feed, we simply accept the gap rather than build a data
+pipeline. (It exists and is interesting; it's just not this project.)
 
 ## Context layer (③)
 

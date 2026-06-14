@@ -10,7 +10,13 @@ Two engines, one repo:
    threads, formation/best-XI graphics, pre-match breakdowns. Published under
    the **Ginga Labs** brand on X / Instagram.
 
-The content is a *derivative* of real, tracked analysis — substance, not filler.
+The content is backed by real, tracked analysis — which is what makes it fun to
+build and worth reading.
+
+> **This is a personal exploration, not a business** — see [`docs/charter.md`](docs/charter.md)
+> for goals & non-goals. We leverage existing data; we don't compete, build our
+> own intelligence layer, or need to monetize. The win is a complete autonomous
+> loop, learning soccer, and posting cool content.
 
 ## Status: **design phase**
 
@@ -19,13 +25,14 @@ yet — the design lives in `docs/`. Code starts once the design is locked.
 
 ```
 docs/
+  charter.md           ★ why we're building it: goals, non-goals, principles
   arquitetura.md       the layered architecture (+ diagram)
   belief-schema.md     the atom of the context layer: a falsifiable belief
   tactical-taxonomy.md the dimensions we form beliefs about (the scaffold)
   content-types.md     the post formats (from real reference accounts)
-  data-coverage.md     best-in-class vs what we have, per competition
-  landscape.md         competitors, our moat, content-monetization, timing
-  tech-stack.md        data sources (layered), rendering, X/IG publishing
+  data-coverage.md     what data exists per competition (what we consume)
+  landscape.md         context: the ecosystem we consume (not compete with)
+  tech-stack.md        data sources, rendering, X/IG publishing
 ```
 
 ## The discipline that makes it honest

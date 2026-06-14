@@ -36,8 +36,9 @@ Legend: ✅ free/strong · 🟡 partial/proxy (free) · 💲 paid-only · 🛠 D
 2. **World Cup = the free exception.** FIFA EFI gives tracking + physical free.
    → For **Seleção now, we are ~best-in-class for $0.** Best place to prove the
    engine at full depth (and the subject already chosen).
-3. **Série B = the frontier.** Almost nothing free; depth only via DIY CV.
-   Painful, but nobody else has it → the moat (the Ginga Labs thesis, quantified).
+3. **Série B is just thin.** Little free data, no event/xG. Per `charter.md` we
+   *leverage existing sources* — so we accept the gap and work with basics, not
+   build our own data. Fine: the World Cup / Seleção is where the fun depth is.
 
 ## Consequence for the belief schema
 
@@ -51,4 +52,6 @@ This grid **is** the map of `test_strength`:
 1. **Now:** API-Football (spine) + FIFA EFI (Seleção, full depth). Free.
 2. **Brasileirão resumes:** add FBref (Série A xG/advanced).
 3. **Calibration anytime:** StatsBomb open data (offline backtest).
-4. **R&D / moat:** roboflow CV for the no-feed long tail (Série B, várzea).
+
+All existing sources we just consume. Building our own data is out of scope
+(`charter.md`).
