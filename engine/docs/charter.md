@@ -32,11 +32,14 @@ The payoff is **learning and fun**, not a business.
 ## Principles
 
 1. **Leverage, don't rebuild.** If a source exists, consume it; if it doesn't,
-   we skip that depth — we don't go build it.
+   we skip that depth — we don't go build it. (Includes the Canon: build it from
+   books, Wikipedia, web, and historical match data — not by manufacturing data.)
 2. **Honesty makes it real.** The belief discipline (falsifiable, pre-registered)
    isn't for credibility-as-marketing — it's what makes the *learning* genuine
    and the content worth reading.
-3. **Autonomous, with you as override.** The fun is the loop running itself.
+3. **Autonomous, with you as override.** Locked: **you review drafts and approve
+   publishing; everything else is the AI.** You may optionally inject ideas from
+   watching games / reading news. The prompt layer is for your input, not running.
 4. **Small and fun beats big and grindy.** Prefer the version that's enjoyable
    to build and shows something working.
 
