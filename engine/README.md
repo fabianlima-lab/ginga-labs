@@ -23,6 +23,7 @@ docs/
   belief-schema.md     the atom of the context layer: a falsifiable belief
   tactical-taxonomy.md the dimensions we form beliefs about (the scaffold)
   content-types.md     the post formats (from real reference accounts)
+  data-coverage.md     best-in-class vs what we have, per competition
   tech-stack.md        data sources (layered), rendering, X/IG publishing
 ```
 
