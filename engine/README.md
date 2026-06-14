@@ -35,6 +35,7 @@ docs/
   content-types.md     the post formats (from real reference accounts)
   delivery.md          the output timeline (pre/game/post/MOTM/scores/round)
   data-coverage.md     what data exists per competition (what we consume)
+  data-reach.md        how far back each source goes (the era-mining window)
   landscape.md         context: the ecosystem we consume (not compete with)
   tech-stack.md        data sources, rendering, X/IG publishing
 ```

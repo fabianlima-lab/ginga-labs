@@ -38,18 +38,20 @@ Canon once it settles (see analysis-model.md).
 
 ## Prerequisite: know how far our data reaches
 
-Data-driven era discovery only works as far back as *rich* data goes. Step one is
-a **data-reach audit** by source & granularity:
+Data-driven era discovery only works as far back as *rich* data goes. The full
+audit is in **`data-reach.md`**; the headline:
 
 | Granularity | Source | Reaches back to |
 |-------------|--------|-----------------|
-| Event-level (xG, passes, locations) | StatsBomb open data + FBref advanced | ~2010s+ (spotty before; Messi/Barça 2004+; recent WCs/Euros) |
-| Box-score / results / lineups | FBref, Wikipedia | decades |
+| Event-level (xG, passes, locations) | StatsBomb open data | **La Liga 2004/05–2020/21 continuous**; Men's WC 1958–2022 (retro-coded); UCL 1999+ |
+| Event + box, current | API-Football | ~2010 → now |
+| Advanced / xG (box) | FBref | ~2017/18 → now |
 | Tracking / physical | FIFA EFI | 2022+ (World Cup) |
 
-→ We can genuinely **derive** eras only in the rich-data window (~2010s→now).
-Earlier eras (2006 CM, '82, '74) are box-score + narrative + video — reconciled
-**qualitatively**, not data-derived. Honest boundary; don't fake the old numbers.
+→ **Correction (post-audit):** even classic World Cups (Brasil '70, Laranja
+Mecânica '74) have *event* data via StatsBomb retro-coding — coarser than modern,
+no tracking, but real. So those are event-analyzable, not video-only.
 
-(First action: confirm the exact reach/granularity of each source, then mine the
-rich window for regimes + breaks = our first data-derived eras.)
+→ **Prime inductive-mining ground: La Liga 2004–2021** — 17 continuous seasons in
+one elite league, where we can actually watch the winning formula change and find
+the breaks. Start the era-mining here.
