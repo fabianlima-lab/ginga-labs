@@ -1,8 +1,10 @@
 # Delivery — the output timeline
 
-**Autonomy (locked):** the human *reviews drafts and approves publishing*;
-everything else is the AI. The human may optionally inject ideas from watching
-games / reading news. (See `charter.md`.)
+**Autonomy (simplified):** the AI writes *and publishes* directly to the **Ginga
+Labs site** (GitHub Pages) — no review gate, no social for now. Honesty (sourced
+claims, flagged uncertainty) replaces the review gate. The human may inject ideas.
+(See `charter.md`.) Outputs: Canon/learning **articles** + per-match WC 2026
+analysis, run as a loop.
 
 Delivery is a **timeline of outputs** driven by the match — and round — clock.
 

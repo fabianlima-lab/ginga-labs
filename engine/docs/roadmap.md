@@ -26,11 +26,12 @@ to you.
 **Blocker:** an **API-Football key** to pull live data (scaffolding can start
 without it).
 
-## Phase 3 — Publish & go autonomous (close the loop) — *needs your accounts*
-X / Instagram accounts + keys, the **publish gate** (your approval), and the
-**scheduling/triggers** (the proactive pre/post/round clock). Then the loop runs:
-data → belief → content → your review → publish → learn.
-**Blocker:** social accounts + keys (and an optional analytics endpoint).
+## Phase 3 — Publish & go autonomous (close the loop) — *simplified*
+**No review gate, no social.** The AI publishes directly to the **Ginga Labs site**
+(`engine/site/`, GitHub Pages): Canon/learning articles + per-match WC 2026
+analysis. Add the **scheduling/triggers** (the pre/post/round clock) so it runs as
+a loop. Honesty (sourced, uncertainty flagged) replaces the human gate.
+**Blocker:** GitHub Pages deploy config (small); API-Football key for live matches.
 
 ## Phase 4 — Compounding (the actual point) — *ongoing*
 It runs live (**WC 2026 first**): the Canon and the beliefs grow each match,

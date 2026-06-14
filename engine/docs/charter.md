@@ -37,9 +37,11 @@ The payoff is **learning and fun**, not a business.
 2. **Honesty makes it real.** The belief discipline (falsifiable, pre-registered)
    isn't for credibility-as-marketing — it's what makes the *learning* genuine
    and the content worth reading.
-3. **Autonomous, with you as override.** Locked: **you review drafts and approve
-   publishing; everything else is the AI.** You may optionally inject ideas from
-   watching games / reading news. The prompt layer is for your input, not running.
+3. **Autonomous, end to end (simplified).** The AI writes *and publishes*
+   directly to the **Ginga Labs site** (GitHub Pages) — **no human review gate,
+   no social accounts for now.** You may still inject ideas. In place of a review
+   gate, **honesty is the safeguard**: every claim sourced, every uncertainty
+   flagged in the piece itself.
 4. **Small and fun beats big and grindy.** Prefer the version that's enjoyable
    to build and shows something working.
 
