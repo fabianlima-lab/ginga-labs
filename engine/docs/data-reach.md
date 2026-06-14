@@ -17,11 +17,11 @@ API-Football docs — checked 2026-06.
 
 ## Findings
 
-1. **Classic World Cups have EVENT data.** StatsBomb retro-coded WC 1958–1990 —
-   so **Brasil '70 and Laranja Mecânica '74** (their WC matches) ARE
-   event-analyzable. *Caveat:* retro-coded from footage → coarser/less accurate
-   than modern live data, and no 360/tracking. **(Corrects the earlier "the 1974
-   numbers don't exist.")**
+1. **Classic World Cups have EVENT data — but single-team.** StatsBomb's old WC
+   data is only the **iconic side's run** (Brasil '70 = 6 matches of Brazil; NL
+   '74; etc.), not the tournament — confirmed empirically (1970/74/86 each yield
+   1 team; 1990 = 1 match). So Brasil '70 / Laranja '74 are **team studies**, not
+   holistic. *Also* retro-coded → coarser, no 360/tracking.
 2. **Prime inductive-mining set: La Liga 2004/05–2020/21** — **17 continuous
    seasons** of event data in one elite league. The best place to watch the
    winning formula change over time and detect era boundaries (tiki-taka's rise

@@ -12,11 +12,18 @@ diffusion; an era is about *differential advantage* and its death.
 ### Holistic, never one team
 An era/tendency is a property that separates winners from the field **across many
 teams** — so it can only be defined on **holistic, multi-team data**. One club's
-data shows *that club's* dominance arc (a **team study**), never an era. The
-holistic substrate: **tournaments** (World Cups = all teams, editions 1958→2022;
-Euros; Copa) and **current leagues** (all teams, via API-Football). Note the
-metric ceiling: StatsBomb's Pressure + xG fields exist only ~2017+, so
-advanced-metric mining is recent; older editions = pass-based metrics only.
+data shows *that club's* dominance arc (a **team study**), never an era.
+
+**Confirmed empirically (see `phase2-tournaments.md`):** the only *holistic*
+event data we have is **WC 2018 & 2022, Euro 2020 & 2024, Copa 2024** — all
+**2018–2024**. Older World Cups in the open data are **single-team** (the iconic
+side's run: Brazil '70, Netherlands '74…), same limit as La Liga = Barça.
+
+→ Hard consequence: our holistic window is **one era (2018–2024)**. We can
+**characterize the current era** and **test future shifts forward** (WC 2026 is
+the next edition), but we **cannot data-derive past era boundaries** — history is
+team-studies + Phase-3 narrative, not data. **Inductive era-mining is
+forward-looking.**
 
 ## Lifecycle — and what ends an era
 
