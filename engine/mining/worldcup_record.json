@@ -1,0 +1,200 @@
+[
+  {
+    "year": 1930,
+    "final_goals": 6,
+    "top_scorer": "St\u00e1bile",
+    "ts_country": "ARG",
+    "ts_goals": 8,
+    "matches": 18,
+    "goals_per_match": null
+  },
+  {
+    "year": 1934,
+    "final_goals": 3,
+    "top_scorer": "Nejedl\u00fd",
+    "ts_country": "TCH",
+    "ts_goals": 5,
+    "matches": 17,
+    "goals_per_match": null
+  },
+  {
+    "year": 1938,
+    "final_goals": 6,
+    "top_scorer": "Le\u00f4nidas",
+    "ts_country": "BRA",
+    "ts_goals": 7,
+    "matches": 18,
+    "goals_per_match": null
+  },
+  {
+    "year": 1950,
+    "final_goals": 3,
+    "top_scorer": "Ademir",
+    "ts_country": "BRA",
+    "ts_goals": 9,
+    "matches": 22,
+    "goals_per_match": null
+  },
+  {
+    "year": 1954,
+    "final_goals": 5,
+    "top_scorer": "Kocsis",
+    "ts_country": "HUN",
+    "ts_goals": 11,
+    "matches": 26,
+    "goals_per_match": 5.38
+  },
+  {
+    "year": 1958,
+    "final_goals": 7,
+    "top_scorer": "Fontaine",
+    "ts_country": "FRA",
+    "ts_goals": 13,
+    "matches": 35,
+    "goals_per_match": null
+  },
+  {
+    "year": 1962,
+    "final_goals": 4,
+    "top_scorer": "6-way tie",
+    "ts_country": "-",
+    "ts_goals": 4,
+    "matches": 32,
+    "goals_per_match": null
+  },
+  {
+    "year": 1966,
+    "final_goals": 6,
+    "top_scorer": "Eus\u00e9bio",
+    "ts_country": "POR",
+    "ts_goals": 9,
+    "matches": 32,
+    "goals_per_match": null
+  },
+  {
+    "year": 1970,
+    "final_goals": 5,
+    "top_scorer": "G. M\u00fcller",
+    "ts_country": "FRG",
+    "ts_goals": 10,
+    "matches": 32,
+    "goals_per_match": null
+  },
+  {
+    "year": 1974,
+    "final_goals": 3,
+    "top_scorer": "Lato",
+    "ts_country": "POL",
+    "ts_goals": 7,
+    "matches": 38,
+    "goals_per_match": null
+  },
+  {
+    "year": 1978,
+    "final_goals": 4,
+    "top_scorer": "Kempes",
+    "ts_country": "ARG",
+    "ts_goals": 6,
+    "matches": 38,
+    "goals_per_match": null
+  },
+  {
+    "year": 1982,
+    "final_goals": 4,
+    "top_scorer": "Rossi",
+    "ts_country": "ITA",
+    "ts_goals": 6,
+    "matches": 52,
+    "goals_per_match": null
+  },
+  {
+    "year": 1986,
+    "final_goals": 5,
+    "top_scorer": "Lineker",
+    "ts_country": "ENG",
+    "ts_goals": 6,
+    "matches": 52,
+    "goals_per_match": null
+  },
+  {
+    "year": 1990,
+    "final_goals": 1,
+    "top_scorer": "Schillaci",
+    "ts_country": "ITA",
+    "ts_goals": 6,
+    "matches": 52,
+    "goals_per_match": 2.21
+  },
+  {
+    "year": 1994,
+    "final_goals": 0,
+    "top_scorer": "Salenko/Stoichkov",
+    "ts_country": "-",
+    "ts_goals": 6,
+    "matches": 52,
+    "goals_per_match": null
+  },
+  {
+    "year": 1998,
+    "final_goals": 3,
+    "top_scorer": "\u0160uker",
+    "ts_country": "CRO",
+    "ts_goals": 6,
+    "matches": 64,
+    "goals_per_match": null
+  },
+  {
+    "year": 2002,
+    "final_goals": 2,
+    "top_scorer": "Ronaldo",
+    "ts_country": "BRA",
+    "ts_goals": 8,
+    "matches": 64,
+    "goals_per_match": null
+  },
+  {
+    "year": 2006,
+    "final_goals": 2,
+    "top_scorer": "Klose",
+    "ts_country": "GER",
+    "ts_goals": 5,
+    "matches": 64,
+    "goals_per_match": null
+  },
+  {
+    "year": 2010,
+    "final_goals": 1,
+    "top_scorer": "T. M\u00fcller",
+    "ts_country": "GER",
+    "ts_goals": 5,
+    "matches": 64,
+    "goals_per_match": null
+  },
+  {
+    "year": 2014,
+    "final_goals": 1,
+    "top_scorer": "J. Rodr\u00edguez",
+    "ts_country": "COL",
+    "ts_goals": 6,
+    "matches": 64,
+    "goals_per_match": null
+  },
+  {
+    "year": 2018,
+    "final_goals": 6,
+    "top_scorer": "Kane",
+    "ts_country": "ENG",
+    "ts_goals": 6,
+    "matches": 64,
+    "goals_per_match": null
+  },
+  {
+    "year": 2022,
+    "final_goals": 6,
+    "top_scorer": "Mbapp\u00e9",
+    "ts_country": "FRA",
+    "ts_goals": 8,
+    "matches": 64,
+    "goals_per_match": null
+  }
+]
