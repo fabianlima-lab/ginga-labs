@@ -32,7 +32,7 @@ docs/
   analysis-model.md    ★ tendencies as causal chains (context→system→player→data→edge)
   tactical-taxonomy.md the dimensions we form beliefs about (the scaffold)
   content-types.md     the post formats (from real reference accounts)
-  delivery.md          the output timeline (pre/game/HT/post/MOTM/scores/round)
+  delivery.md          the output timeline (pre/game/post/MOTM/scores/round)
   data-coverage.md     what data exists per competition (what we consume)
   landscape.md         context: the ecosystem we consume (not compete with)
   tech-stack.md        data sources, rendering, X/IG publishing
