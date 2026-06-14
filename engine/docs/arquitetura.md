@@ -10,7 +10,7 @@ The system reads top-to-bottom; the two highlighted arrows carry the thesis.
 |---|-------|----------------|
 | ① | **Data** | External sources, normalized: FBref (xG, advanced), API-Football (fixtures, lineups, events), news RSS (injuries, probable XI) |
 | ② | **Workflows** | Deterministic, scheduled: ingestion + the clock triggers (pre-match week / matchday / post-match) |
-| ③ | **Context layer** | The repo — the heart. Observation Log, **Belief Bank**, Team Dossiers, History/Learning Ledger |
+| ③ | **Context layer** | The repo — the heart, knowledge at 3 timescales: **Canon** (timeless — our understanding of the game, see `canon.md`) · **Team Dossiers** (seasonal) · **Belief Bank** + Observation Log + History/Learning Ledger (per-match) |
 | ④ | **Agent** | Non-deterministic: `Observe → Operationalize+LOCK → Test & Revise` |
 | ⑤ | **Delivery** | Briefings to you + the **content workflow** (threads, graphics) |
 

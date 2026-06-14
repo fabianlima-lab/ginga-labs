@@ -28,6 +28,7 @@ docs/
   charter.md           ★ why we're building it: goals, non-goals, principles
   arquitetura.md       the layered architecture (+ diagram)
   belief-schema.md     the atom of the context layer: a falsifiable belief
+  canon.md             ★ the timeless tier: our understanding of the game
   tactical-taxonomy.md the dimensions we form beliefs about (the scaffold)
   content-types.md     the post formats (from real reference accounts)
   data-coverage.md     what data exists per competition (what we consume)
