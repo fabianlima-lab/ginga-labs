@@ -110,6 +110,13 @@ only repeats legends — each entry is built in phases:
 Sources: StatsBomb open data + FBref (historical match data) · Wikipedia (factual
 record: squads, formations, results) · books/analyses (Phase 3 only).
 
+**Build order: World Cups first, then double-click teams.** The structured WC
+record (results, goals, formations, scorers) is holistic back to **1930**, so the
+WC timeline is the Canon's coarse spine; specific sides (Brasil '70, tiki-taka
+Barça) are the richer *team-study* double-clicks layered on top. **Firewall:**
+Wikipedia's quantitative record = blind-inference DATA; its tactical prose =
+received wisdom (Phase 3) — never mine prose as data.
+
 ## Seed list (first entries to write)
 
 Laranja Mecânica · Brasil '70 · Brasil '82 (Telê) · Sacchi's Milan · catenaccio ·

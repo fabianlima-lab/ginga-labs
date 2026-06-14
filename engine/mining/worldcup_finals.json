@@ -1,0 +1,178 @@
+[
+  {
+    "year": 1930,
+    "host": "Uruguay",
+    "winner": "Uruguay",
+    "runner_up": "Argentina",
+    "final_goals": 6,
+    "decided": "reg"
+  },
+  {
+    "year": 1934,
+    "host": "Italy",
+    "winner": "Italy",
+    "runner_up": "Czechoslovakia",
+    "final_goals": 3,
+    "decided": "aet"
+  },
+  {
+    "year": 1938,
+    "host": "France",
+    "winner": "Italy",
+    "runner_up": "Hungary",
+    "final_goals": 6,
+    "decided": "reg"
+  },
+  {
+    "year": 1950,
+    "host": "Brazil",
+    "winner": "Uruguay",
+    "runner_up": "Brazil",
+    "final_goals": 3,
+    "decided": "reg"
+  },
+  {
+    "year": 1954,
+    "host": "Switzerland",
+    "winner": "West Germany",
+    "runner_up": "Hungary",
+    "final_goals": 5,
+    "decided": "reg"
+  },
+  {
+    "year": 1958,
+    "host": "Sweden",
+    "winner": "Brazil",
+    "runner_up": "Sweden",
+    "final_goals": 7,
+    "decided": "reg"
+  },
+  {
+    "year": 1962,
+    "host": "Chile",
+    "winner": "Brazil",
+    "runner_up": "Czechoslovakia",
+    "final_goals": 4,
+    "decided": "reg"
+  },
+  {
+    "year": 1966,
+    "host": "England",
+    "winner": "England",
+    "runner_up": "West Germany",
+    "final_goals": 6,
+    "decided": "aet"
+  },
+  {
+    "year": 1970,
+    "host": "Mexico",
+    "winner": "Brazil",
+    "runner_up": "Italy",
+    "final_goals": 5,
+    "decided": "reg"
+  },
+  {
+    "year": 1974,
+    "host": "West Germany",
+    "winner": "West Germany",
+    "runner_up": "Netherlands",
+    "final_goals": 3,
+    "decided": "reg"
+  },
+  {
+    "year": 1978,
+    "host": "Argentina",
+    "winner": "Argentina",
+    "runner_up": "Netherlands",
+    "final_goals": 4,
+    "decided": "aet"
+  },
+  {
+    "year": 1982,
+    "host": "Spain",
+    "winner": "Italy",
+    "runner_up": "West Germany",
+    "final_goals": 4,
+    "decided": "reg"
+  },
+  {
+    "year": 1986,
+    "host": "Mexico",
+    "winner": "Argentina",
+    "runner_up": "West Germany",
+    "final_goals": 5,
+    "decided": "reg"
+  },
+  {
+    "year": 1990,
+    "host": "Italy",
+    "winner": "West Germany",
+    "runner_up": "Argentina",
+    "final_goals": 1,
+    "decided": "reg"
+  },
+  {
+    "year": 1994,
+    "host": "USA",
+    "winner": "Brazil",
+    "runner_up": "Italy",
+    "final_goals": 0,
+    "decided": "pens"
+  },
+  {
+    "year": 1998,
+    "host": "France",
+    "winner": "France",
+    "runner_up": "Brazil",
+    "final_goals": 3,
+    "decided": "reg"
+  },
+  {
+    "year": 2002,
+    "host": "South Korea/Japan",
+    "winner": "Brazil",
+    "runner_up": "Germany",
+    "final_goals": 2,
+    "decided": "reg"
+  },
+  {
+    "year": 2006,
+    "host": "Germany",
+    "winner": "Italy",
+    "runner_up": "France",
+    "final_goals": 2,
+    "decided": "pens"
+  },
+  {
+    "year": 2010,
+    "host": "South Africa",
+    "winner": "Spain",
+    "runner_up": "Netherlands",
+    "final_goals": 1,
+    "decided": "aet"
+  },
+  {
+    "year": 2014,
+    "host": "Brazil",
+    "winner": "Germany",
+    "runner_up": "Argentina",
+    "final_goals": 1,
+    "decided": "aet"
+  },
+  {
+    "year": 2018,
+    "host": "Russia",
+    "winner": "France",
+    "runner_up": "Croatia",
+    "final_goals": 6,
+    "decided": "reg"
+  },
+  {
+    "year": 2022,
+    "host": "Qatar",
+    "winner": "Argentina",
+    "runner_up": "France",
+    "final_goals": 6,
+    "decided": "pens"
+  }
+]

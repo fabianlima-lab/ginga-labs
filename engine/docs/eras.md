@@ -19,11 +19,18 @@ event data we have is **WC 2018 & 2022, Euro 2020 & 2024, Copa 2024** — all
 **2018–2024**. Older World Cups in the open data are **single-team** (the iconic
 side's run: Brazil '70, Netherlands '74…), same limit as La Liga = Barça.
 
-→ Hard consequence: our holistic window is **one era (2018–2024)**. We can
-**characterize the current era** and **test future shifts forward** (WC 2026 is
-the next edition), but we **cannot data-derive past era boundaries** — history is
-team-studies + Phase-3 narrative, not data. **Inductive era-mining is
-forward-looking.**
+→ Consequence — **two resolutions:**
+- **Fine** (possession, xG, pressing): holistic only **2018–2024**. So fine
+  inductive era-mining is **forward-looking** (accumulate tournaments; WC 2026 is
+  the next edition).
+- **Coarse** (results, goals/game, formations, scorers): the **structured factual
+  record is holistic back to 1930** (Wikipedia/RSSSF). We *can* build a 1930→now
+  era spine at coarse resolution — and real eras live in it (e.g. World-Cup-final
+  goals collapse to 1.4 across 1990–2014, then snap back — see
+  `phase2-finals.md`).
+
+**Firewall:** use Wikipedia's *quantitative* record as blind-inference DATA; its
+*tactical prose* is received wisdom (Phase 3). Don't mine prose as data.
 
 ## Lifecycle — and what ends an era
 

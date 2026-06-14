@@ -13,7 +13,7 @@ API-Football docs — checked 2026-06.
 | **Event + box, current seasons** | API-Football | ~2010 → now (deeper history on paid tiers) |
 | **Advanced / xG** (box) | FBref | ~2017/18 → now (EPL+; was StatsBomb → now Opta) |
 | **Tracking + physical** | FIFA EFI | 2022 → (World Cup only) |
-| **Results / lineups / factual** | Wikipedia, FBref | decades |
+| **Structured factual** (results, goals, formations, top scorers) | Wikipedia, RSSSF | **1930 → now — holistic (all teams), coarse (no event detail)** |
 
 ## Findings
 
@@ -39,6 +39,15 @@ API-Football docs — checked 2026-06.
 7. **Holistic vs single-team.** La Liga OD = Barça-only (a *team study*).
    Tournaments (World Cups/Euros/Copa) are the holistic, all-teams substrate
    eras actually require.
+8. **Two resolutions of "holistic".** *Event-level* holistic data exists only
+   2018–2024 (5 tournaments). But the *structured factual* record (results, goals,
+   formations, scorers) is **holistic and reaches 1930** — coarse, but real. So we
+   can build a 1930→now era spine at coarse resolution, and add fine tactical
+   detail only for 2018+.
+9. **Quant ≠ narrative (firewall).** On Wikipedia, the *quantitative* record
+   (scores, goals, scorers) is DATA for blind inference; the *tactical prose*
+   ("catenaccio stifled…") is received wisdom = Phase 3. Never mine the prose as
+   data, or the anti-bias discipline collapses.
 
 ## Implications for the plan
 
