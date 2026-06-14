@@ -9,7 +9,7 @@ they agree.**
 
 ## Signal 2 — top-scorer (Golden Boot) goals
 8.8 (1930–58, incl. Fontaine **13** in '58) → 7.5 (1962–74) → **6.0 flat
-(1978–1998 — exactly 6 for *seven straight* tournaments)** → 6.3 (2002–22)
+(1978–1998 — exactly 6 for *six straight* tournaments)** → 6.3 (2002–22)
 
 ## Signal 3 — goals per match (sourced record extremes)
 1954 = **5.38** (highest ever) … 1990 = **2.21** (lowest ever)

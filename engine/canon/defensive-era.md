@@ -27,7 +27,7 @@ era in one stat line: **not conceding could carry you to a World Cup final.**
   target up top. The emblematic hero wasn't a playmaker; it was Schillaci, a
   grinder with wide eyes and a knack for the loose ball.
 - **Data signature** — **2.21 goals/game in 1990**, a record low that *still*
-  stands; the **Golden Boot won with exactly 6 for seven straight tournaments
+  stands; the **Golden Boot won with exactly 6 for six straight tournaments
   (1978–98)**; finals settled 1-0 or on penalties.
 - **Edge** — *not conceding.* Argentina proved it: five goals, two shootouts, a
   final.
