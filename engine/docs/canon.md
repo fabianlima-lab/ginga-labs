@@ -32,6 +32,11 @@ view-from-nowhere. Five principles:
 - **Canon + belief engine → grounded *and* current.** Understands the ideas and
   tests them against what's happening now. That's the goal.
 
+Entries are **causal chains** — context → system → player profile → data
+signature → edge, plus relations (see `analysis-model.md`) — not descriptions.
+The Canon also receives **settled era-theses**: a macro-belief, once its era is
+historical, graduates in here.
+
 ## Entry schema (strawman)
 
 ```yaml

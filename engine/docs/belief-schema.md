@@ -9,6 +9,7 @@ beliefs** that data ratifies or rectifies. This is the moat.
 belief:
   id: fla-433-left-transition
   claim: "Flamengo's 4-3-3 is exposed in defensive transition down the left"
+  level: micro | macro                        # team-now, or game/era-wide (see analysis-model.md)
   scope: { team: Flamengo, since: "2026-05 (after Ayrton's injury)" }
   status: open | ratified | rectified | under-review
   confidence: low | medium | high            # belief in the claim
@@ -25,6 +26,11 @@ belief:
 Two fields make or break it:
 - **`test`** — without it the belief isn't falsifiable.
 - **`mechanism`** — without it you flip a flag and learn nothing.
+
+Every belief is a **causal chain** — context → system → profile → data signature
+→ edge — not a bare claim (see `analysis-model.md`). `level: macro` beliefs are
+**era theses** ("2026 = era of the full-back") tested against aggregate data;
+once an era is settled they graduate into the Canon.
 
 `history` is where the compounding lives — it's the proof the system got smarter.
 Note **`confidence` ≠ `test_strength`**: you can be highly confident in a claim
