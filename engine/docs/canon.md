@@ -58,6 +58,16 @@ canon:
                       measure → observe/proxy)"
   register: "how a football person actually talks about it — a quote, the feel"
   origin: agent-drafted | you-curated     # the Canon is human-refined
+  # built data-first (see method below):
+  data_themes:        # Phase 2 — blind inference, each citing metric evidence
+    - "..."
+  received_wisdom:    # Phase 3 — what the books/narrative claim
+    - "..."
+  reconciliation:     # Phase 4 — vs the data AND the blind inference
+    confirmed: ["..."]
+    myth:      ["..."]      # narrative not supported by the data
+    discovery: ["..."]      # data shows what the legend missed → best content
+  data_grade: rich | thin  # is true blind inference possible, or video/factual only?
 ```
 
 Note the relational fields — `lineage`, `what_beats_it`, `br_lens`. Understanding
@@ -71,13 +81,34 @@ break a compact mid-block."* The Canon gives the vocabulary and the frame; the
 belief is the tested, current read. Rarely, a pattern proven over many matches
 may enrich the Canon — but deliberately, never on one result.
 
-## Building it (existing sources only)
+## Building it — data first, narrative second (anti-bias)
 
-- **Qualitative (the understanding):** curated from tactics literature + football
-  discourse + the expert accounts. Agent drafts from its own knowledge; **you
-  refine**. Quality over coverage.
-- **Quantitative (exemplar matches):** StatsBomb open data (historical World Cups)
-  + FBref history — for concrete instances, secondary to the writing.
+To dodge *both* failure modes — the PhD who only computes, and the romantic who
+only repeats legends — each entry is built in phases:
+
+1. **DATA (blind)** — gather the historical record: match data, stats, lineups,
+   results. No narrative yet.
+2. **INFERENCE (blind)** — derive themes *purely from that data*, **citing the
+   metric evidence**. Resist pattern-matching to the famous story — derive from
+   the numbers in front of us, not latent memory of the legend (the same
+   anti-confirmation lock as the belief engine, applied to the agent). The human
+   can check: is the inference citing data, or just retelling the myth?
+3. **NARRATIVE** — only now read the books/analyses (Wilson, Cox, web).
+4. **RECONCILE** — for each received claim, does the data **and** the blind
+   inference: **CONFIRM** it · show it's **MYTH** (narrative absent from the data)
+   · or reveal a **DISCOVERY** (data shows what the legend missed)? Discoveries
+   are original insight — and the best content.
+
+### The honest data gradient (where the method actually works)
+- **RICH — true blind inference:** tiki-taka / **Pep's Barça** (StatsBomb covers
+  Messi's whole career) · **recent World Cups** (StatsBomb open data) · the
+  **current era** (FBref + FIFA EFI). **Start here.**
+- **THIN — results/lineups/video only:** Laranja Mecânica '74, Brasil '70/'82,
+  2006. No event/tracking data → "data-first" = the factual/box record + video,
+  reconciliation is qualitative. Don't pretend the numbers exist.
+
+Sources: StatsBomb open data + FBref (historical match data) · Wikipedia (factual
+record: squads, formations, results) · books/analyses (Phase 3 only).
 
 ## Seed list (first entries to write)
 
