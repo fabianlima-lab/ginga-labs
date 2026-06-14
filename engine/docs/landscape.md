@@ -11,6 +11,16 @@ where we sit.
 | **FootballGPT / aifootball.co** | Marketplace of coaching skills / MCPs / APIs / GPTs. Runs on Claude Desktop, ChatGPT. | Possible **ready-made tools** for our agent's tool layer. Verify their stats aren't just resold API-Football before depending. |
 | **FIFA "Football AI Pro"** (FIFA + Lenovo) | Elite assistant for the 48 WC teams; FIFA's Football Language Model, 2,000+ metrics. | Not a competitor — it's *internal to the teams*. It just **confirms the public FIFA EFI data we consume is deep and real.** |
 | **Clip-arbitrage bots** | Auto-cut official footage → Shorts → ad revenue. | A cautionary example, not a model — see below. |
+| **DeepMind TacticAI** | DeepMind + Liverpool FC; geometric deep learning that analyzes & recommends **corner / set-piece** setups (Nature, 2024). | **Inspiration, not rival.** Landmark evidence that AI has a real tactical role — answers the charter's core question. Suggests **set pieces** as our first focus: bounded, high-value, analyzable with limited data. |
+
+## Considered, not adopted (on the record)
+
+- **Faceless-YouTube WC monetization / newcomer explainers** — monetization is a
+  non-goal, and it's a *different product* (English, ad-driven) than our PT-first
+  tactical voice. The only kernel (the WC brings first-time fans) doesn't change
+  what we make.
+- **Build-your-own computer vision** (YOLO/OpenCV, roboflow) — out of scope; we
+  leverage existing sources, we don't manufacture data.
 
 ## One guardrail for "cool content"
 
