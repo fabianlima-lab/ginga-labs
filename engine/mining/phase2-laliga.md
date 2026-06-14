@@ -1,5 +1,10 @@
 # Phase 2 — blind read: La Liga (Barcelona), 2004/05–2020/21
 
+> ⚠️ **This is a TEAM STUDY, not an era.** It's one club's dominance arc (Barça vs
+> the field), because StatsBomb's "La Liga" open data is Barça-only. An era needs
+> a holistic, multi-team view (see `eras.md`, `phase2-worldcup.md`). Useful as an
+> exemplar of *one system's* lifecycle — not as evidence of a league-wide era.
+
 From `laliga_barca_seasons.json` (5 sampled matches/season, Barça vs opponent).
 **No narrative consulted** — themes from the numbers only (the blind-inference
 discipline; Phase 3 reconciliation comes after).

@@ -31,6 +31,14 @@ API-Football docs — checked 2026-06.
 4. **360 / tracking is recent only** (2020+). No deep positional history.
 5. **"Rich" is competition-specific, not a date cutoff** — it's *these sets*, not
    "everything after 2010."
+6. **Availability ≠ computable metrics.** StatsBomb's **Pressure and xG fields
+   exist only ~2017+** in the data spec. So even where old event data exists
+   (WC 1990, retro), advanced metrics aren't derivable — confirmed empirically:
+   WC 1990 yielded 0 usable teams in the holistic run. Pre-2017 = pass-based
+   metrics only (possession, completion, directness), no xG/pressing.
+7. **Holistic vs single-team.** La Liga OD = Barça-only (a *team study*).
+   Tournaments (World Cups/Euros/Copa) are the holistic, all-teams substrate
+   eras actually require.
 
 ## Implications for the plan
 

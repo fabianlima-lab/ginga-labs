@@ -9,6 +9,15 @@ the rest. In the era, "has X" predicts over-performance.
 **Not "what was popular" — what gave an EDGE, until it didn't.** Popularity is
 diffusion; an era is about *differential advantage* and its death.
 
+### Holistic, never one team
+An era/tendency is a property that separates winners from the field **across many
+teams** — so it can only be defined on **holistic, multi-team data**. One club's
+data shows *that club's* dominance arc (a **team study**), never an era. The
+holistic substrate: **tournaments** (World Cups = all teams, editions 1958→2022;
+Euros; Copa) and **current leagues** (all teams, via API-Football). Note the
+metric ceiling: StatsBomb's Pressure + xG fields exist only ~2017+, so
+advanced-metric mining is recent; older editions = pass-based metrics only.
+
 ## Lifecycle — and what ends an era
 
 1. **Innovation** — X appears; early adopters over-perform → the edge opens.
