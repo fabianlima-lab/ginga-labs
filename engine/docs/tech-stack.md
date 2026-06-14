@@ -3,17 +3,27 @@
 Principle: reuse what we've proven, buy only what we must, keep credentials in
 the environment (never in the repo).
 
-## Data layer (①)
+## Data layer (①) — a layered strategy
 
-| Source | Gives | Notes |
-|--------|-------|-------|
-| **API-Football** (api-sports.io) | fixtures, lineups, events, stats, odds — Brasileirão + World Cup + Seleção | best single starting point; free tier (~100 req/day), paid scales |
-| **FBref** (StatsBomb-powered) | xG, chance creation, progressive passes — incl. Série A Brasil | richest *accessible* tactical depth; via scraping |
-| **News RSS** (ge.globo etc.) | injuries, probable XI, context | agent synthesizes |
+No single source is enough; we layer by purpose.
 
-Honest boundary: real **positional tracking** (per-player heatmaps) is paid/B2B.
-We work at FBref/advanced-stats level — strong and credible, but tests will
-often be **proxies** (flagged via `test_strength`, see belief-schema).
+| Layer | Source | Gives | For |
+|-------|--------|-------|-----|
+| **Spine** | **API-Football** (api-sports.io) | fixtures, lineups (+ formation grid), events, team & player match stats, xG where covered, standings, injuries, predictions, odds | both competitions; cheap. Free 100 req/day, Pro $19/mo 7.5k/day |
+| **Tactical — World Cup** | **FIFA Enhanced Football Intelligence** (fifatrainingcentre.com) | **tracking-grade**, free: ~53-page post-match report per game, 2,000+ metrics — line height, team length, pressure, phases of play, line breaks, sprint data | **Seleção, now.** Lets WC belief-tests be `strong`, not proxies |
+| **Tactical — Brasileirão** | **FBref** (StatsBomb) | xG, chance creation, progressive passes — Série A Brasil | domestic depth when it resumes; via scraping |
+| **Calibration** | **StatsBomb Open Data** (GitHub, free) | full event data, select comps (incl. past WCs) | backtest/calibrate the belief engine offline |
+| **Rich visuals** | **FotMob / Sofascore** (unofficial) | shot maps, heatmaps, momentum, ratings | quick visuals — ToS/scraping caution |
+| **Context** | **News RSS** (ge.globo), CBF, clubs | injuries, probable XI, quotes | agent synthesizes |
+
+### Honest boundaries & ingestion notes
+- **FIFA EFI is delivered as reports/visuals, not a clean API.** Ingestion =
+  an agent task that **reads the PDF/images multimodally** and extracts metrics
+  into the context layer (a "FIFA report parser"). World Cup **only**.
+- Outside the World Cup we work at FBref/advanced-stats level — strong, but many
+  tests are **proxies** (flagged via `test_strength`, see belief-schema).
+- **BBC 3D match viewer** (free-camera / player-POV replays) is a *human*
+  verification aid for the override, not a machine-ingestable feed.
 
 ## Context layer (③)
 

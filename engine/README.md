@@ -19,10 +19,11 @@ yet — the design lives in `docs/`. Code starts once the design is locked.
 
 ```
 docs/
-  arquitetura.md     the layered architecture (+ diagram)
-  belief-schema.md   the atom of the context layer: a falsifiable belief
-  content-types.md   the post formats (from real reference accounts)
-  tech-stack.md      data sources, rendering, X/Instagram publishing
+  arquitetura.md       the layered architecture (+ diagram)
+  belief-schema.md     the atom of the context layer: a falsifiable belief
+  tactical-taxonomy.md the dimensions we form beliefs about (the scaffold)
+  content-types.md     the post formats (from real reference accounts)
+  tech-stack.md        data sources (layered), rendering, X/IG publishing
 ```
 
 ## The discipline that makes it honest
