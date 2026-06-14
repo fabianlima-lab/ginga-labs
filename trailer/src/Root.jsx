@@ -1,9 +1,12 @@
 import { Composition } from "remotion";
 import { Trailer, FPS, DURACAO_40S } from "./Trailer.jsx";
 import { Gameplay, DURACAO_90S } from "./Gameplay.jsx";
+import { Arquitetura } from "./Arquitetura.jsx";
 
 export const Root = () => (
   <>
+    {/* Design artifact: the football belief-revision system architecture. */}
+    <Composition id="Arquitetura" component={Arquitetura} durationInFrames={1} fps={30} width={1920} height={1280} />
     {/* Corte principal: X/Twitter, 16:9, 40s. */}
     <Composition
       id="Principal40s"
