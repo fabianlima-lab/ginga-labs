@@ -30,6 +30,7 @@ docs/
   belief-schema.md     the atom of the context layer: a falsifiable belief
   canon.md             ★ the timeless tier: our understanding of the game
   analysis-model.md    ★ tendencies as causal chains (context→system→player→data→edge)
+  eras.md              ★ what defines an era (an edge until disrupted) + how we mine them
   tactical-taxonomy.md the dimensions we form beliefs about (the scaffold)
   content-types.md     the post formats (from real reference accounts)
   delivery.md          the output timeline (pre/game/post/MOTM/scores/round)
