@@ -1,0 +1,235 @@
+{
+  "match": "Brazil 1-2 Belgium",
+  "team": "Brazil",
+  "opp": "Belgium",
+  "nodes": [
+    {
+      "name": "Alisson Rams\u00e9s Becker",
+      "pos": "Goalkeeper",
+      "num": 1,
+      "x": 115.0,
+      "y": 41.0,
+      "touches": 1
+    },
+    {
+      "name": "F\u00e1gner Conserva Lemos",
+      "pos": "Right Back",
+      "num": 22,
+      "x": 65.7,
+      "y": 9.3,
+      "touches": 31
+    },
+    {
+      "name": "Thiago Emiliano da Silva",
+      "pos": "Right Center Back",
+      "num": 2,
+      "x": 75.4,
+      "y": 30.3,
+      "touches": 51
+    },
+    {
+      "name": "Jo\u00e3o Miranda de Souza Filho",
+      "pos": "Left Center Back",
+      "num": 3,
+      "x": 74.3,
+      "y": 51.6,
+      "touches": 41
+    },
+    {
+      "name": "Marcelo Vieira da Silva J\u00fanior",
+      "pos": "Left Back",
+      "num": 12,
+      "x": 45.0,
+      "y": 69.3,
+      "touches": 65
+    },
+    {
+      "name": "Jos\u00e9 Paulo Bezzera Maciel J\u00fanior",
+      "pos": "Right Midfield",
+      "num": 15,
+      "x": 54.7,
+      "y": 27.2,
+      "touches": 46
+    },
+    {
+      "name": "Fernando Luiz Roza",
+      "pos": "Center Midfield",
+      "num": 17,
+      "x": 56.9,
+      "y": 40.5,
+      "touches": 46
+    },
+    {
+      "name": "Philippe Coutinho Correia",
+      "pos": "Left Midfield",
+      "num": 11,
+      "x": 46.8,
+      "y": 57.8,
+      "touches": 69
+    },
+    {
+      "name": "Willian Borges da Silva",
+      "pos": "Right Wing",
+      "num": 19,
+      "x": 32.2,
+      "y": 13.4,
+      "touches": 33
+    },
+    {
+      "name": "Neymar da Silva Santos Junior",
+      "pos": "Left Wing",
+      "num": 10,
+      "x": 31.6,
+      "y": 64.1,
+      "touches": 54
+    },
+    {
+      "name": "Gabriel Fernando de Jesus",
+      "pos": "Center Forward",
+      "num": 9,
+      "x": 22.1,
+      "y": 45.4,
+      "touches": 7
+    }
+  ],
+  "edges": [
+    {
+      "a": "Fernando Luiz Roza",
+      "b": "Neymar da Silva Santos Junior",
+      "n": 4
+    },
+    {
+      "a": "Fernando Luiz Roza",
+      "b": "Philippe Coutinho Correia",
+      "n": 14
+    },
+    {
+      "a": "Jo\u00e3o Miranda de Souza Filho",
+      "b": "Marcelo Vieira da Silva J\u00fanior",
+      "n": 10
+    },
+    {
+      "a": "Jo\u00e3o Miranda de Souza Filho",
+      "b": "Thiago Emiliano da Silva",
+      "n": 14
+    },
+    {
+      "a": "F\u00e1gner Conserva Lemos",
+      "b": "Thiago Emiliano da Silva",
+      "n": 13
+    },
+    {
+      "a": "F\u00e1gner Conserva Lemos",
+      "b": "Jos\u00e9 Paulo Bezzera Maciel J\u00fanior",
+      "n": 10
+    },
+    {
+      "a": "F\u00e1gner Conserva Lemos",
+      "b": "Willian Borges da Silva",
+      "n": 5
+    },
+    {
+      "a": "Fernando Luiz Roza",
+      "b": "Jo\u00e3o Miranda de Souza Filho",
+      "n": 5
+    },
+    {
+      "a": "Marcelo Vieira da Silva J\u00fanior",
+      "b": "Thiago Emiliano da Silva",
+      "n": 5
+    },
+    {
+      "a": "Marcelo Vieira da Silva J\u00fanior",
+      "b": "Neymar da Silva Santos Junior",
+      "n": 22
+    },
+    {
+      "a": "Neymar da Silva Santos Junior",
+      "b": "Philippe Coutinho Correia",
+      "n": 17
+    },
+    {
+      "a": "Jos\u00e9 Paulo Bezzera Maciel J\u00fanior",
+      "b": "Thiago Emiliano da Silva",
+      "n": 5
+    },
+    {
+      "a": "Jos\u00e9 Paulo Bezzera Maciel J\u00fanior",
+      "b": "Jo\u00e3o Miranda de Souza Filho",
+      "n": 5
+    },
+    {
+      "a": "Jo\u00e3o Miranda de Souza Filho",
+      "b": "Neymar da Silva Santos Junior",
+      "n": 4
+    },
+    {
+      "a": "Philippe Coutinho Correia",
+      "b": "Thiago Emiliano da Silva",
+      "n": 4
+    },
+    {
+      "a": "Marcelo Vieira da Silva J\u00fanior",
+      "b": "Philippe Coutinho Correia",
+      "n": 22
+    },
+    {
+      "a": "Jos\u00e9 Paulo Bezzera Maciel J\u00fanior",
+      "b": "Willian Borges da Silva",
+      "n": 11
+    },
+    {
+      "a": "Fernando Luiz Roza",
+      "b": "Jos\u00e9 Paulo Bezzera Maciel J\u00fanior",
+      "n": 7
+    },
+    {
+      "a": "Jos\u00e9 Paulo Bezzera Maciel J\u00fanior",
+      "b": "Philippe Coutinho Correia",
+      "n": 7
+    },
+    {
+      "a": "Fernando Luiz Roza",
+      "b": "Willian Borges da Silva",
+      "n": 8
+    }
+  ],
+  "stats": {
+    "poss": 58.0,
+    "team": {
+      "passes": 532,
+      "cmp": 86.3,
+      "shots": 25,
+      "xg": 2.61,
+      "goals": 1
+    },
+    "opp": {
+      "passes": 385,
+      "cmp": 80.5,
+      "shots": 8,
+      "xg": 0.41,
+      "goals": 1
+    }
+  },
+  "signals": {
+    "left": 26.3,
+    "right": 33.3,
+    "own_third": 26.7,
+    "final_third": 26.7,
+    "opp_win_x": 63.3,
+    "buildup": [
+      [
+        "Thiago Emiliano da Silva",
+        51
+      ],
+      [
+        "Jo\u00e3o Miranda de Souza Filho",
+        41
+      ],
+      [
+        "Alisson Rams\u00e9s Becker",
+        1
+      ]
+    ]
+  }
+}
