@@ -26,6 +26,7 @@ yet — the design lives in `docs/`. Code starts once the design is locked.
 ```
 docs/
   charter.md           ★ why we're building it: goals, non-goals, principles
+  roadmap.md           ★ the project phases (0 design ✅ → 4 compounding) + what's next
   arquitetura.md       the layered architecture (+ diagram)
   belief-schema.md     the atom of the context layer: a falsifiable belief
   canon.md             ★ the timeless tier: our understanding of the game
