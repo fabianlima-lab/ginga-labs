@@ -11,28 +11,28 @@ const wrap=(t,n)=>{const w=t.split(" ");let l="",o=[];for(const x of w){if((l+" 
 
 const W=1080,H=1560,p=[`<rect width="${W}" height="${H}" fill="${C.ink}"/>`];
 p.push(T(60,70,"GINGA·LABS",{f:MONO,s:18,c:C.gold,w:"700",ls:3}));
-p.push(T(W-60,70,"WORLD CUP 2026 · GROUP C",{f:MONO,s:15,c:C.muted,a:"end",ls:2}));
-p.push(T(60,142,"BRAZIL 1–1 MOROCCO",{s:56,w:"700",f:SERIF}));
-p.push(T(60,182,"phase by phase — who actually won each moment",{s:23,c:C.muted,f:SERIF}));
+p.push(T(W-60,70,"COPA 2026 · GRUPO C",{f:MONO,s:15,c:C.muted,a:"end",ls:2}));
+p.push(T(60,142,"BRASIL 1–1 MARROCOS",{s:56,w:"700",f:SERIF}));
+p.push(T(60,182,"fase a fase — quem venceu cada momento de verdade",{s:23,c:C.muted,f:SERIF}));
 
-const strip=[["POSSESSION","47% — 45%"],["xG","0.99 — 1.33"],["SHOTS (ON)","12(5) — 14(3)"],["DISTANCE","113.7 — 114.9 km"]];
+const strip=[["POSSE","47% — 45%"],["xG","0.99 — 1.33"],["CHUTES (NO GOL)","12(5) — 14(3)"],["DISTÂNCIA","113.7 — 114.9 km"]];
 strip.forEach(([k,v],i)=>{const x=60+i*255;p.push(T(x,250,k,{f:MONO,s:14,c:C.muted,ls:1}));p.push(T(x,290,v,{s:24,w:"700",c:i===1?C.gold:C.paper,f:MONO}));});
 
 // phases
-const EDGE={BRAZIL:C.gold,MOROCCO:C.red,EVEN:C.muted};
+const EDGE={BRASIL:C.gold,MARROCOS:C.red,IGUAL:C.muted};
 const phases=[
- ["Build-up","BRAZIL",
-  "Marquinhos–Gabriel 51 passes (the CB spine) · Douglas Santos → Vinícius 16, the busiest attacking link",
-  "Brazil overloaded the left — Douglas Santos and Paquetá funnelling to Vinícius to isolate him 1v1. It produced the equaliser: Vini cut inside from the left, top corner, Bruno Guimarães the assist (32')."],
- ["Pressing & transition","MOROCCO",
-  "50 forced turnovers to 41 · 79 second balls to 56 · ball won back in 16.8s vs 18.0s",
-  "Morocco's counter-press swarmed every loose ball — and scored from it: Saibari finished a fast break off a Brahim Díaz through ball (21'). Brazil pressed more (315); Morocco's was sharper."],
- ["Final third","MOROCCO",
-  "149 final-third receptions to 100 · xG 1.33 to 0.99 · 49 ball progressions to 30",
-  "Morocco got there far more often. Brazil arrived less, but more dangerously — one Vinícius isolation outweighed Morocco's volume."],
- ["Set pieces","EVEN",
-  "6 corners to 2 · 0 set-piece goals · both goals from open play",
-  "Brazil's set-piece volume brought no end product. The game was settled in open play, not the box."],
+ ["Construção","BRASIL",
+  "Marquinhos–Gabriel 51 passes (eixo dos zagueiros) · Douglas Santos → Vini 16, a ligação ofensiva mais usada",
+  "Brasil sobrecarregou a esquerda — Douglas Santos e Paquetá afunilando pra isolar Vinícius no 1v1. Saiu o empate: Vini cortou de fora pra dentro, ângulo, assistência de Bruno Guimarães (32')."],
+ ["Pressão & transição","MARROCOS",
+  "50 posses forçadas a 41 · 79 segundas bolas a 56 · bola recuperada em 16,8s vs 18,0s",
+  "A contra-pressão do Marrocos caçou cada bola solta — e fez gol nela: Saibari finalizou um contra-ataque após lançamento de Brahim Díaz (21'). O Brasil pressionou mais; o Marrocos pressionou melhor."],
+ ["Entrada no terço final","MARROCOS",
+  "149 recepções no terço final a 100 · xG 1,33 a 0,99 · 57 quebras de linha por dentro a 32",
+  "O Marrocos chegou muito mais, e por dentro. O Brasil chegou menos, mas com mais perigo — um isolamento de Vinícius pesou mais que o volume do Marrocos."],
+ ["Bola parada","IGUAL",
+  "6 escanteios a 2 · 0 gols de bola parada · os dois gols com a bola rolando",
+  "O volume de escanteios do Brasil não virou nada. O jogo se decidiu na bola rolando, não na área."],
 ];
 let y=370;
 for(let i=0;i<phases.length;i++){
@@ -52,13 +52,13 @@ for(let i=0;i<phases.length;i++){
 // verdict
 y+=20;
 p.push(`<rect x="56" y="${y-26}" width="${W-112}" height="150" rx="12" fill="#14160f" stroke="${C.line}"/>`);
-p.push(T(80,y+4,"VERDICT",{f:MONO,s:15,c:C.gold,ls:3}));
+p.push(T(80,y+4,"VEREDITO",{f:MONO,s:15,c:C.gold,ls:3}));
 y+=40;
-const verd="Morocco edged the phases that decide games by volume — transition and final-third entry — and deserved more than a point. Brazil's one clear advantage, the engineered left-side 1v1 for Vinícius, is precisely what rescued the draw. One plan, one goal.";
+const verd="O Marrocos venceu as fases que decidem o jogo — transição e entrada no terço final — e merecia mais que um ponto. A única vantagem clara do Brasil, o 1v1 fabricado pra Vinícius na esquerda, é justamente o que salvou o empate. Um plano, um gol.";
 for(const l of wrap(verd,86)){p.push(T(80,y,l,{s:19,c:C.paper,f:SERIF}));y+=28;}
 
 p.push(`<line x1="60" y1="${H-56}" x2="${W-60}" y2="${H-56}" stroke="${C.line}"/>`);
-p.push(T(60,H-26,"Source: FIFA Enhanced Football Intelligence — post-match report (free)",{f:MONO,s:13,c:C.muted}));
+p.push(T(60,H-26,"Fonte: FIFA Enhanced Football Intelligence — relatório pós-jogo (gratuito)",{f:MONO,s:13,c:C.muted}));
 p.push(T(W-60,H-26,"ginga labs — soul & science",{f:MONO,s:13,c:C.gold,a:"end"}));
 
 const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">${p.join("")}</svg>`;
