@@ -1,73 +1,66 @@
-// WC 2026 match report from FREE FIFA Enhanced Football Intelligence data.
-// Brazil 1-1 Morocco — the "underlying numbers" story. SVG -> PNG via resvg.
+// WC 2026 match report — PHASE-BY-PHASE comparison (the cheat-sheet lens).
+// Brazil 1-1 Morocco, free FIFA EFI data. Scores each phase + the mechanism.
 import { Resvg } from "@resvg/resvg-js";
 import { writeFileSync } from "node:fs";
 
-const C={ink:"#0d0f0c",paper:"#f2ead8",gold:"#ffd447",muted:"#9a937f",red:"#e0625a",line:"#2c2f29",dimg:"#5f5a2a",dimr:"#5a3330"};
+const C={ink:"#0d0f0c",paper:"#f2ead8",gold:"#ffd447",muted:"#9a937f",red:"#e0625a",line:"#2c2f29"};
 const SERIF="Georgia, serif",MONO="DejaVu Sans Mono, monospace",SANS="DejaVu Sans, Arial, sans-serif";
 const esc=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 const T=(x,y,t,{s=20,c=C.paper,w="normal",f=SANS,a="start",ls=0}={})=>`<text x="${x}" y="${y}" font-family="${f}" font-size="${s}" fill="${c}" font-weight="${w}" text-anchor="${a}" letter-spacing="${ls}">${esc(t)}</text>`;
+const wrap=(t,n)=>{const w=t.split(" ");let l="",o=[];for(const x of w){if((l+" "+x).length>n){o.push(l);l=x;}else l=(l?l+" ":"")+x;}o.push(l);return o;};
 
-const W=1080,H=1440,p=[`<rect width="${W}" height="${H}" fill="${C.ink}"/>`];
-// header
+const W=1080,H=1560,p=[`<rect width="${W}" height="${H}" fill="${C.ink}"/>`];
 p.push(T(60,70,"GINGA·LABS",{f:MONO,s:18,c:C.gold,w:"700",ls:3}));
-p.push(T(W-60,70,"WORLD CUP 2026 · MATCHDAY 1",{f:MONO,s:15,c:C.muted,a:"end",ls:2}));
+p.push(T(W-60,70,"WORLD CUP 2026 · GROUP C",{f:MONO,s:15,c:C.muted,a:"end",ls:2}));
 p.push(T(60,142,"BRAZIL 1–1 MOROCCO",{s:56,w:"700",f:SERIF}));
-p.push(T(60,182,"Group C · the draw that flattered the favourites",{s:23,c:C.muted,f:SERIF}));
+p.push(T(60,182,"phase by phase — who actually won each moment",{s:23,c:C.muted,f:SERIF}));
 
-// stat strip
 const strip=[["POSSESSION","47% — 45%"],["xG","0.99 — 1.33"],["SHOTS (ON)","12(5) — 14(3)"],["DISTANCE","113.7 — 114.9 km"]];
-strip.forEach(([k,v],i)=>{const x=60+i*255;p.push(T(x,250,k,{f:MONO,s:14,c:C.muted,ls:1}));p.push(T(x,290,v,{s:25,w:"700",c:i===1?C.gold:C.paper,f:MONO}));});
-p.push(`<line x1="60" y1="320" x2="${W-60}" y2="320" stroke="${C.line}"/>`);
+strip.forEach(([k,v],i)=>{const x=60+i*255;p.push(T(x,250,k,{f:MONO,s:14,c:C.muted,ls:1}));p.push(T(x,290,v,{s:24,w:"700",c:i===1?C.gold:C.paper,f:MONO}));});
 
-// underlying numbers — tug of war
-p.push(T(60,372,"THE UNDERLYING NUMBERS",{f:MONO,s:17,c:C.gold,ls:3}));
-p.push(T(W-60,372,"by FIFA's own tracking",{f:MONO,s:15,c:C.muted,a:"end"}));
-const cx=540, maxLen=350;
-// [label, brazil, morocco, fmt]
-const rows=[
- ["Expected goals (xG)",0.99,1.33,v=>v.toFixed(2)],
- ["Final-third receptions",100,149,v=>v],
- ["Ball progressions",30,49,v=>v],
- ["Forced turnovers",41,50,v=>v],
- ["Second balls won",56,79,v=>v],
- ["Defensive pressures",315,285,v=>v],
+// phases
+const EDGE={BRAZIL:C.gold,MOROCCO:C.red,EVEN:C.muted};
+const phases=[
+ ["Build-up","BRAZIL",
+  "Marquinhos–Gabriel 51 passes (the CB spine) · Douglas Santos → Vinícius 16, the busiest attacking link",
+  "Brazil deliberately overloaded the left — Douglas Santos, Paquetá and Bruno funnelling to Vinícius to isolate him 1v1. That matchup is exactly how they scored."],
+ ["Pressing & transition","MOROCCO",
+  "50 forced turnovers to 41 · 79 second balls to 56 · ball won back in 16.8s vs 18.0s",
+  "Morocco's counter-press swarmed every loose ball and turned Brazil's build-up into chaos. Brazil pressed more (315 pressures) — Morocco's was sharper and faster."],
+ ["Final third","MOROCCO",
+  "149 final-third receptions to 100 · xG 1.33 to 0.99 · 49 ball progressions to 30",
+  "Morocco got there far more often. Brazil arrived less, but more dangerously — one Vinícius isolation outweighed Morocco's volume."],
+ ["Set pieces","EVEN",
+  "6 corners to 2 · 0 set-piece goals · both goals from open play",
+  "Brazil's set-piece volume brought no end product. The game was settled in open play, not the box."],
 ];
-let y=440;
-for(const [lab,b,m,fmt] of rows){
- const rmax=Math.max(b,m), lb=(b/rmax)*maxLen, lm=(m/rmax)*maxLen;
- const bWin=b>m;
- p.push(T(cx,y-30,lab,{f:MONO,s:15,c:C.paper,a:"middle",ls:1}));
- p.push(`<rect x="${cx-lb}" y="${y-18}" width="${lb}" height="26" rx="3" fill="${bWin?C.gold:C.dimg}"/>`);
- p.push(`<rect x="${cx}" y="${y-18}" width="${lm}" height="26" rx="3" fill="${!bWin?C.red:C.dimr}"/>`);
- p.push(T(cx-lb-12,y+1,fmt(b),{f:MONO,s:19,w:"700",c:bWin?C.gold:C.muted,a:"end"}));
- p.push(T(cx+lm+12,y+1,fmt(m),{f:MONO,s:19,w:"700",c:!bWin?C.red:C.muted}));
- y+=72;
+let y=370;
+for(let i=0;i<phases.length;i++){
+ const [name,edge,stat,why]=phases[i];
+ p.push(`<circle cx="78" cy="${y-7}" r="16" fill="none" stroke="${C.gold}" stroke-width="2"/>`);
+ p.push(T(78,y,String(i+1),{s:18,c:C.gold,a:"middle",w:"700",f:MONO}));
+ p.push(T(112,y,name,{s:27,w:"700",f:SERIF}));
+ // edge pill
+ const pillW=esc(edge).length*13+44, px=W-60-pillW;
+ p.push(`<rect x="${px}" y="${y-26}" width="${pillW}" height="34" rx="17" fill="none" stroke="${EDGE[edge]}" stroke-width="2"/>`);
+ p.push(T(px+pillW/2,y-3,edge,{f:MONO,s:15,c:EDGE[edge],a:"middle",w:"700",ls:1}));
+ y+=34; p.push(T(112,y,stat,{f:MONO,s:15,c:C.paper}));
+ y+=34; for(const l of wrap(why,82)){p.push(T(112,y,l,{s:18,c:C.muted,f:SERIF}));y+=26;}
+ y+=14; if(i<phases.length-1)p.push(`<line x1="60" y1="${y-18}" x2="${W-60}" y2="${y-18}" stroke="${C.line}"/>`);
 }
-p.push(`<line x1="${cx}" y1="410" x2="${cx}" y2="${y-50}" stroke="${C.line}" stroke-dasharray="3 5"/>`);
-p.push(T(cx-maxLen,y-8,"◄ BRAZIL",{f:MONO,s:14,c:C.gold,ls:1}));
-p.push(T(cx+maxLen,y-8,"MOROCCO ►",{f:MONO,s:14,c:C.red,a:"end",ls:1}));
 
-// findings
-y+=44; p.push(`<line x1="60" y1="${y-30}" x2="${W-60}" y2="${y-30}" stroke="${C.line}"/>`);
-p.push(T(60,y,"WHAT THE DATA SEES",{f:MONO,s:17,c:C.gold,ls:3})); y+=44;
-const F=[
- ["The draw flattered the favourites.","Morocco out-created Brazil (1.33 xG to 0.99), reached the final third half-again as often (149 receptions to 100) and progressed the ball far more (49 to 30). On the numbers, the African side were the better team."],
- ["Morocco won the war for loose balls.","79 second balls to 56, 50 forced turnovers to 41, and they won possession back faster (16.8s vs 18.0s). Brazil pressed more — 315 pressures to 285 — and it bought them less."],
- ["Brazil built through the back, and only went left.","Marquinhos and Gabriel Magalhães swapped 51 passes — the spine of everything. The one attacking artery was the left: Douglas Santos fed Vinícius 16 times. Casemiro, the pivot, was a bystander."],
-];
-F.forEach(([h,b],i)=>{
- p.push(`<circle cx="76" cy="${y-6}" r="15" fill="none" stroke="${C.gold}" stroke-width="2"/>`);
- p.push(T(76,y,String(i+1),{s:18,c:C.gold,a:"middle",w:"700",f:MONO}));
- p.push(T(110,y,h,{s:23,w:"700",c:C.paper,f:SERIF})); y+=30;
- const words=b.split(" ");let ln="",lines=[];for(const w of words){if((ln+" "+w).length>80){lines.push(ln);ln=w;}else ln=(ln?ln+" ":"")+w;}lines.push(ln);
- for(const l of lines){p.push(T(110,y,l,{s:18,c:C.muted,f:SERIF}));y+=25;} y+=20;
-});
+// verdict
+y+=20;
+p.push(`<rect x="56" y="${y-26}" width="${W-112}" height="150" rx="12" fill="#14160f" stroke="${C.line}"/>`);
+p.push(T(80,y+4,"VERDICT",{f:MONO,s:15,c:C.gold,ls:3}));
+y+=40;
+const verd="Morocco edged the phases that decide games by volume — transition and final-third entry — and deserved more than a point. Brazil's one clear advantage, the engineered left-side 1v1 for Vinícius, is precisely what rescued the draw. One plan, one goal.";
+for(const l of wrap(verd,86)){p.push(T(80,y,l,{s:19,c:C.paper,f:SERIF}));y+=28;}
 
-p.push(`<line x1="60" y1="${H-58}" x2="${W-60}" y2="${H-58}" stroke="${C.line}"/>`);
-p.push(T(60,H-28,"Source: FIFA Enhanced Football Intelligence — post-match summary report (free)",{f:MONO,s:13,c:C.muted}));
-p.push(T(W-60,H-28,"ginga labs — soul & science",{f:MONO,s:13,c:C.gold,a:"end"}));
+p.push(`<line x1="60" y1="${H-56}" x2="${W-60}" y2="${H-56}" stroke="${C.line}"/>`);
+p.push(T(60,H-26,"Source: FIFA Enhanced Football Intelligence — post-match report (free)",{f:MONO,s:13,c:C.muted}));
+p.push(T(W-60,H-26,"ginga labs — soul & science",{f:MONO,s:13,c:C.gold,a:"end"}));
 
 const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">${p.join("")}</svg>`;
 writeFileSync(new URL("./img/report-bra-mar-2026.png",import.meta.url), new Resvg(svg,{fitTo:{mode:"width",value:W},font:{loadSystemFonts:true}}).render().asPng());
-console.log("wrote engine/site/img/report-bra-mar-2026.png");
+console.log("wrote report-bra-mar-2026.png");
