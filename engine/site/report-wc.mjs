@@ -23,10 +23,10 @@ const EDGE={BRAZIL:C.gold,MOROCCO:C.red,EVEN:C.muted};
 const phases=[
  ["Build-up","BRAZIL",
   "Marquinhos–Gabriel 51 passes (the CB spine) · Douglas Santos → Vinícius 16, the busiest attacking link",
-  "Brazil deliberately overloaded the left — Douglas Santos, Paquetá and Bruno funnelling to Vinícius to isolate him 1v1. That matchup is exactly how they scored."],
+  "Brazil overloaded the left — Douglas Santos and Paquetá funnelling to Vinícius to isolate him 1v1. It produced the equaliser: Vini cut inside from the left, top corner, Bruno Guimarães the assist (32')."],
  ["Pressing & transition","MOROCCO",
   "50 forced turnovers to 41 · 79 second balls to 56 · ball won back in 16.8s vs 18.0s",
-  "Morocco's counter-press swarmed every loose ball and turned Brazil's build-up into chaos. Brazil pressed more (315 pressures) — Morocco's was sharper and faster."],
+  "Morocco's counter-press swarmed every loose ball — and scored from it: Saibari finished a fast break off a Brahim Díaz through ball (21'). Brazil pressed more (315); Morocco's was sharper."],
  ["Final third","MOROCCO",
   "149 final-third receptions to 100 · xG 1.33 to 0.99 · 49 ball progressions to 30",
   "Morocco got there far more often. Brazil arrived less, but more dangerously — one Vinícius isolation outweighed Morocco's volume."],
