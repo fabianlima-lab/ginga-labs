@@ -75,9 +75,9 @@ is structured by *relations between ideas*, not isolated facts.
 
 ## How beliefs use it
 
-Beliefs **reference** canon entries: *"Brazil's build-up vs Morocco was a
-positionist 4-3-3, but lacked the relationist combinations (`relacionismo`) to
-break a compact mid-block."* The Canon gives the vocabulary and the frame; the
+Beliefs **reference** canon entries (illustrative phrasing): *"a team's build-up
+was a positionist 4-3-3, but lacked the relationist combinations (`relacionismo`)
+to break a compact mid-block."* The Canon gives the vocabulary and the frame; the
 belief is the tested, current read. Rarely, a pattern proven over many matches
 may enrich the Canon — but deliberately, never on one result.
 

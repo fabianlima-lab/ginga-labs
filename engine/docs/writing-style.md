@@ -4,10 +4,15 @@ Como toda peça é escrita. Destilado de um artigo real da McKinsey (*State of A
 trust in 2026*) — princípio da pirâmide aplicado a futebol. **Idioma padrão:
 português.**
 
+> Os exemplos abaixo usam **Brasil 1–2 Bélgica (Copa 2018)** — dados reais,
+> minerados do StatsBomb open (`mining/passmap.py`), cada número re-derivável.
+> Por contrato (`foundation.md`), exemplo de estilo também não inventa números.
+
 ## Os sete movimentos (em ordem)
 
 1. **Título = o movimento, não o tema.** Nomeia a virada/tese com âncora.
-   *"O empate mentiu pro Brasil"* — não *"Análise de Brasil 1–1 Marrocos"*.
+   *"A noite em que o controle não bastou"* — não *"Análise de Brasil 1–2
+   Bélgica"*.
 
 2. **Resposta primeiro (lede answer-first).** O primeiro parágrafo é a
    conclusão de governo, antes de qualquer número. O leitor sabe o veredito na
@@ -15,16 +20,16 @@ português.**
 
 3. **O handle — uma frase-gancho que comprime a tese.** Um contraste curto e
    grudento que carrega o artigo. Ref. McKinsey: *"saying the wrong thing" vs
-   "doing the wrong thing".* Nosso: *"o Brasil teve a bola; o Marrocos fez mal
-   com ela."* Toda peça precisa de um.
+   "doing the wrong thing".* Nosso: *"o Brasil controlou tudo, menos o placar."*
+   Toda peça precisa de um.
 
 4. **Estrutura MECE, sinalizada.** Diga quantos blocos e que eles não se
    sobrepõem ("três blocos, um a um"). Pilares mutuamente exclusivos,
    coletivamente exaustivos.
 
 5. **Todo header é uma frase-conclusão.** Ler só os títulos = ter o argumento
-   inteiro. *"A transição decidiu o jogo. E foi do Marrocos."* — nunca só
-   *"Transição"*.
+   inteiro. *"O controle comprou chances, não gols."* — nunca só *"Posse de
+   bola"*.
 
 6. **Todo parágrafo termina em significado, não no número.** Padrão fixo:
    **dado → mecanismo (o "como") → implicação (o "e daí?").** O número é a
@@ -33,7 +38,7 @@ português.**
 
 7. **Reframe contrário ao senso comum.** Vire a suposição padrão de cabeça pra
    baixo, com prova. McKinsey: *"não é um imposto, é um habilitador".* Nosso:
-   *"eficiência não é um plano, é uma sorte que você não controla".*
+   *"posse não é controle do jogo; é só controle da bola."*
 
 ## Disciplinas que sustentam o estilo
 
@@ -48,8 +53,9 @@ português.**
 
 ## Anti-padrões (o que "alto demais" significava)
 
-- Adjetivo sem mecanismo ("o Marrocos foi melhor na transição") sem o *como*
-  (bloco médio 39%, recuperação em 16,8s, gol do Saibari).
-- Stat sem régua ("xG 1,33") sem o contraste (vs 0,99 do Brasil).
+- Adjetivo sem mecanismo ("a Bélgica foi melhor na transição") sem o *como*
+  (um contra-ataque do De Bruyne, Courtois defendendo tudo).
+- Stat sem régua ("2,61 de xG") sem o contraste (vs 0,41 da Bélgica — e o
+  Brasil perdeu).
 - Parágrafo que termina no número em vez do "e daí".
-- Elogio à eficiência sem o alerta que ela esconde.
+- Elogio ao controle sem o alerta que ele esconde.
