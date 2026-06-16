@@ -1,0 +1,8 @@
+{
+  "source": "espn-public-json",
+  "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/summary?event=760426",
+  "http_status": 200,
+  "fetched_at_utc": "2026-06-16T01:14:38.116020+00:00",
+  "sha256": "9336b37e8b2bb8d282cd3bc8d75b2b389fbd5af62c8dd5d4d43df56b800fbcf0",
+  "bytes": 413113
+}
