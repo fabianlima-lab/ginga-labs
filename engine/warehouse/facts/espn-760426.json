@@ -1,0 +1,138 @@
+{
+  "schema": "ginga-facts/espn/v1",
+  "provenance": {
+    "source": "espn-public-json",
+    "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/summary?event=760426",
+    "fetched_at_utc": "2026-06-16T01:14:38.116020+00:00",
+    "sha256": "9336b37e8b2bb8d282cd3bc8d75b2b389fbd5af62c8dd5d4d43df56b800fbcf0"
+  },
+  "match": {
+    "event_id": "760426",
+    "competition": "FIFA World Cup",
+    "date_utc": "2026-06-15T19:00Z",
+    "status": "Full Time",
+    "venue": null,
+    "teams": [
+      {
+        "name": "Belgium",
+        "abbreviation": "BEL",
+        "home_away": "home",
+        "score": 1
+      },
+      {
+        "name": "Egypt",
+        "abbreviation": "EGY",
+        "home_away": "away",
+        "score": 1
+      }
+    ],
+    "source": {
+      "raw_file": "warehouse/raw/espn/summary-760426.json",
+      "sha256": "9336b37e8b2bb8d282cd3bc8d75b2b389fbd5af62c8dd5d4d43df56b800fbcf0"
+    }
+  },
+  "team_stats": [
+    {
+      "team": "Belgium",
+      "stats": {
+        "foulsCommitted": "15",
+        "yellowCards": "2",
+        "redCards": "0",
+        "offsides": "0",
+        "wonCorners": "2",
+        "saves": "2",
+        "possessionPct": "53.6",
+        "totalShots": "15",
+        "shotsOnTarget": "3",
+        "shotPct": "0.2",
+        "penaltyKickGoals": "0",
+        "penaltyKickShots": "0",
+        "accuratePasses": "391",
+        "totalPasses": "455",
+        "passPct": "0.9",
+        "accurateCrosses": "6",
+        "totalCrosses": "16",
+        "crossPct": "0.4",
+        "totalLongBalls": "30",
+        "accurateLongBalls": "18",
+        "longballPct": "0.6",
+        "blockedShots": "5",
+        "effectiveTackles": "11",
+        "totalTackles": "17",
+        "tacklePct": "0.6",
+        "interceptions": "10",
+        "effectiveClearance": "25",
+        "totalClearance": "25"
+      },
+      "source": {
+        "raw_file": "warehouse/raw/espn/summary-760426.json",
+        "sha256": "9336b37e8b2bb8d282cd3bc8d75b2b389fbd5af62c8dd5d4d43df56b800fbcf0"
+      }
+    },
+    {
+      "team": "Egypt",
+      "stats": {
+        "foulsCommitted": "15",
+        "yellowCards": "2",
+        "redCards": "0",
+        "offsides": "1",
+        "wonCorners": "7",
+        "saves": "3",
+        "possessionPct": "46.4",
+        "totalShots": "14",
+        "shotsOnTarget": "3",
+        "shotPct": "0.2",
+        "penaltyKickGoals": "0",
+        "penaltyKickShots": "0",
+        "accuratePasses": "323",
+        "totalPasses": "398",
+        "passPct": "0.8",
+        "accurateCrosses": "2",
+        "totalCrosses": "13",
+        "crossPct": "0.2",
+        "totalLongBalls": "53",
+        "accurateLongBalls": "20",
+        "longballPct": "0.4",
+        "blockedShots": "8",
+        "effectiveTackles": "17",
+        "totalTackles": "28",
+        "tacklePct": "0.6",
+        "interceptions": "16",
+        "effectiveClearance": "17",
+        "totalClearance": "17"
+      },
+      "source": {
+        "raw_file": "warehouse/raw/espn/summary-760426.json",
+        "sha256": "9336b37e8b2bb8d282cd3bc8d75b2b389fbd5af62c8dd5d4d43df56b800fbcf0"
+      }
+    }
+  ],
+  "goals": [
+    {
+      "minute": "20'",
+      "text": "Goal! Belgium 0, Egypt 1. Emam Ashour (Egypt) right footed shot from outside the box to the bottom left corner. Assisted by Mohamed Salah.",
+      "team": "Egypt",
+      "source": {
+        "raw_file": "warehouse/raw/espn/summary-760426.json",
+        "sha256": "9336b37e8b2bb8d282cd3bc8d75b2b389fbd5af62c8dd5d4d43df56b800fbcf0"
+      }
+    },
+    {
+      "minute": "66'",
+      "text": "Own Goal by Mohamed Hany, Egypt. Belgium 1, Egypt 1.",
+      "team": "Belgium",
+      "source": {
+        "raw_file": "warehouse/raw/espn/summary-760426.json",
+        "sha256": "9336b37e8b2bb8d282cd3bc8d75b2b389fbd5af62c8dd5d4d43df56b800fbcf0"
+      }
+    }
+  ],
+  "counts": {
+    "team_stats_fields": [
+      28,
+      28
+    ],
+    "goals": 2,
+    "commentary_entries": 126
+  }
+}

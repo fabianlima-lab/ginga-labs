@@ -1,0 +1,485 @@
+[
+  {
+    "edition": "1990",
+    "n_teams": 0,
+    "corr": {
+      "poss": null,
+      "cmp": null,
+      "longsh": null,
+      "press": null
+    },
+    "teams": {}
+  },
+  {
+    "edition": "2018",
+    "n_teams": 32,
+    "corr": {
+      "poss": 0.46,
+      "cmp": 0.31,
+      "longsh": -0.4,
+      "press": -0.06
+    },
+    "teams": {
+      "Brazil": {
+        "poss": 58.6,
+        "cmp": 85.0,
+        "longsh": 14.4,
+        "press": 173.6,
+        "xgdiff": 1.9
+      },
+      "Belgium": {
+        "poss": 52.9,
+        "cmp": 84.5,
+        "longsh": 17.0,
+        "press": 204.6,
+        "xgdiff": 0.5
+      },
+      "Japan": {
+        "poss": 52.8,
+        "cmp": 81.1,
+        "longsh": 17.4,
+        "press": 165.2,
+        "xgdiff": -0.4
+      },
+      "England": {
+        "poss": 54.5,
+        "cmp": 82.8,
+        "longsh": 20.4,
+        "press": 195,
+        "xgdiff": 0.5
+      },
+      "Panama": {
+        "poss": 36.1,
+        "cmp": 77.8,
+        "longsh": 24.5,
+        "press": 192,
+        "xgdiff": -1.6
+      },
+      "Poland": {
+        "poss": 50.5,
+        "cmp": 79.5,
+        "longsh": 24.4,
+        "press": 167.3,
+        "xgdiff": -0.2
+      },
+      "Senegal": {
+        "poss": 42.0,
+        "cmp": 73.0,
+        "longsh": 26.1,
+        "press": 192.3,
+        "xgdiff": 0.5
+      },
+      "Serbia": {
+        "poss": 42.3,
+        "cmp": 75.8,
+        "longsh": 23.3,
+        "press": 263.3,
+        "xgdiff": 0.2
+      },
+      "Switzerland": {
+        "poss": 58.9,
+        "cmp": 82.7,
+        "longsh": 21.1,
+        "press": 176.5,
+        "xgdiff": -0.4
+      },
+      "Sweden": {
+        "poss": 37.6,
+        "cmp": 69.4,
+        "longsh": 26.8,
+        "press": 205.4,
+        "xgdiff": 0.5
+      },
+      "South Korea": {
+        "poss": 37.6,
+        "cmp": 74.7,
+        "longsh": 25.4,
+        "press": 222.3,
+        "xgdiff": -1.2
+      },
+      "Germany": {
+        "poss": 71.7,
+        "cmp": 85.4,
+        "longsh": 17.1,
+        "press": 149.3,
+        "xgdiff": 0.9
+      },
+      "Mexico": {
+        "poss": 52.5,
+        "cmp": 80.8,
+        "longsh": 20.9,
+        "press": 169,
+        "xgdiff": -1.0
+      },
+      "Iran": {
+        "poss": 29.0,
+        "cmp": 59.6,
+        "longsh": 32.8,
+        "press": 201.3,
+        "xgdiff": -0.7
+      },
+      "Spain": {
+        "poss": 73.9,
+        "cmp": 89.5,
+        "longsh": 13.3,
+        "press": 154.2,
+        "xgdiff": 1.1
+      },
+      "Uruguay": {
+        "poss": 46.6,
+        "cmp": 75.2,
+        "longsh": 21.5,
+        "press": 174,
+        "xgdiff": 1.0
+      },
+      "Saudi Arabia": {
+        "poss": 59.0,
+        "cmp": 84.3,
+        "longsh": 17.4,
+        "press": 164,
+        "xgdiff": -0.3
+      },
+      "France": {
+        "poss": 48.5,
+        "cmp": 78.9,
+        "longsh": 19.9,
+        "press": 187.7,
+        "xgdiff": 0.4
+      },
+      "Peru": {
+        "poss": 50.2,
+        "cmp": 79.5,
+        "longsh": 18.9,
+        "press": 160.7,
+        "xgdiff": -0.6
+      },
+      "Argentina": {
+        "poss": 65.4,
+        "cmp": 82.2,
+        "longsh": 16.9,
+        "press": 158.5,
+        "xgdiff": -0.1
+      },
+      "Croatia": {
+        "poss": 56.6,
+        "cmp": 78.0,
+        "longsh": 21.1,
+        "press": 164.3,
+        "xgdiff": 0.6
+      },
+      "Colombia": {
+        "poss": 50.4,
+        "cmp": 76.6,
+        "longsh": 20.7,
+        "press": 188.5,
+        "xgdiff": -0.7
+      },
+      "Tunisia": {
+        "poss": 52.6,
+        "cmp": 80.6,
+        "longsh": 19.9,
+        "press": 228,
+        "xgdiff": -1.2
+      },
+      "Iceland": {
+        "poss": 33.1,
+        "cmp": 65.0,
+        "longsh": 29.9,
+        "press": 231,
+        "xgdiff": 0.2
+      },
+      "Russia": {
+        "poss": 37.7,
+        "cmp": 69.0,
+        "longsh": 25.5,
+        "press": 205.4,
+        "xgdiff": -0.7
+      },
+      "Egypt": {
+        "poss": 43.3,
+        "cmp": 74.9,
+        "longsh": 20.4,
+        "press": 169.3,
+        "xgdiff": -0.8
+      },
+      "Portugal": {
+        "poss": 54.0,
+        "cmp": 79.9,
+        "longsh": 20.6,
+        "press": 162.5,
+        "xgdiff": -0.1
+      },
+      "Morocco": {
+        "poss": 48.8,
+        "cmp": 76.3,
+        "longsh": 22.5,
+        "press": 178.7,
+        "xgdiff": -0.2
+      },
+      "Costa Rica": {
+        "poss": 39.4,
+        "cmp": 75.1,
+        "longsh": 24.9,
+        "press": 121,
+        "xgdiff": -1.3
+      },
+      "Denmark": {
+        "poss": 43.7,
+        "cmp": 75.9,
+        "longsh": 24.1,
+        "press": 169.2,
+        "xgdiff": -0.7
+      },
+      "Nigeria": {
+        "poss": 47.3,
+        "cmp": 72.8,
+        "longsh": 22.3,
+        "press": 195.3,
+        "xgdiff": -0.2
+      },
+      "Australia": {
+        "poss": 51.5,
+        "cmp": 81.7,
+        "longsh": 19.7,
+        "press": 175,
+        "xgdiff": 0.4
+      }
+    }
+  },
+  {
+    "edition": "2022",
+    "n_teams": 32,
+    "corr": {
+      "poss": 0.59,
+      "cmp": 0.57,
+      "longsh": -0.52,
+      "press": -0.18
+    },
+    "teams": {
+      "Canada": {
+        "poss": 52.4,
+        "cmp": 83.9,
+        "longsh": 20.2,
+        "press": 126.7,
+        "xgdiff": 0.1
+      },
+      "Morocco": {
+        "poss": 38.8,
+        "cmp": 78.9,
+        "longsh": 22.3,
+        "press": 155,
+        "xgdiff": -0.1
+      },
+      "England": {
+        "poss": 63.1,
+        "cmp": 86.3,
+        "longsh": 17.3,
+        "press": 97,
+        "xgdiff": 0.9
+      },
+      "Iran": {
+        "poss": 37.3,
+        "cmp": 68.9,
+        "longsh": 27.0,
+        "press": 150.7,
+        "xgdiff": 0.0
+      },
+      "Croatia": {
+        "poss": 54.3,
+        "cmp": 84.0,
+        "longsh": 16.6,
+        "press": 135.6,
+        "xgdiff": -0.3
+      },
+      "Belgium": {
+        "poss": 56.8,
+        "cmp": 85.5,
+        "longsh": 17.6,
+        "press": 103,
+        "xgdiff": -0.2
+      },
+      "Netherlands": {
+        "poss": 52.9,
+        "cmp": 82.2,
+        "longsh": 17.4,
+        "press": 146,
+        "xgdiff": -0.2
+      },
+      "Ecuador": {
+        "poss": 52.7,
+        "cmp": 79.5,
+        "longsh": 21.5,
+        "press": 139,
+        "xgdiff": 0.6
+      },
+      "Japan": {
+        "poss": 36.0,
+        "cmp": 75.8,
+        "longsh": 20.1,
+        "press": 173,
+        "xgdiff": -0.1
+      },
+      "Spain": {
+        "poss": 75.3,
+        "cmp": 90.1,
+        "longsh": 12.5,
+        "press": 111.2,
+        "xgdiff": 0.3
+      },
+      "United States": {
+        "poss": 52.6,
+        "cmp": 82.8,
+        "longsh": 17.2,
+        "press": 134.2,
+        "xgdiff": -0.1
+      },
+      "Wales": {
+        "poss": 46.2,
+        "cmp": 77.6,
+        "longsh": 22.6,
+        "press": 118,
+        "xgdiff": -0.9
+      },
+      "Tunisia": {
+        "poss": 44.0,
+        "cmp": 75.3,
+        "longsh": 22.7,
+        "press": 120.3,
+        "xgdiff": 0.0
+      },
+      "France": {
+        "poss": 50.9,
+        "cmp": 83.3,
+        "longsh": 19.2,
+        "press": 129.3,
+        "xgdiff": 0.3
+      },
+      "Switzerland": {
+        "poss": 48.7,
+        "cmp": 82.0,
+        "longsh": 16.7,
+        "press": 111,
+        "xgdiff": 0.3
+      },
+      "Cameroon": {
+        "poss": 42.5,
+        "cmp": 76.2,
+        "longsh": 24.9,
+        "press": 134.3,
+        "xgdiff": -0.8
+      },
+      "Portugal": {
+        "poss": 60.9,
+        "cmp": 84.8,
+        "longsh": 18.2,
+        "press": 106,
+        "xgdiff": 0.3
+      },
+      "Ghana": {
+        "poss": 41.9,
+        "cmp": 79.0,
+        "longsh": 20.1,
+        "press": 137.3,
+        "xgdiff": -0.6
+      },
+      "Senegal": {
+        "poss": 45.2,
+        "cmp": 78.0,
+        "longsh": 23.7,
+        "press": 128,
+        "xgdiff": 0.0
+      },
+      "Poland": {
+        "poss": 37.2,
+        "cmp": 77.7,
+        "longsh": 23.3,
+        "press": 115.8,
+        "xgdiff": -0.5
+      },
+      "Saudi Arabia": {
+        "poss": 44.6,
+        "cmp": 71.1,
+        "longsh": 22.5,
+        "press": 131,
+        "xgdiff": -1.1
+      },
+      "Qatar": {
+        "poss": 43.2,
+        "cmp": 81.1,
+        "longsh": 21.4,
+        "press": 125,
+        "xgdiff": -0.8
+      },
+      "Denmark": {
+        "poss": 59.7,
+        "cmp": 83.7,
+        "longsh": 17.6,
+        "press": 112.3,
+        "xgdiff": -0.1
+      },
+      "Germany": {
+        "poss": 58.9,
+        "cmp": 84.4,
+        "longsh": 17.9,
+        "press": 128,
+        "xgdiff": 1.8
+      },
+      "Mexico": {
+        "poss": 53.9,
+        "cmp": 77.0,
+        "longsh": 21.6,
+        "press": 127.3,
+        "xgdiff": 0.2
+      },
+      "Brazil": {
+        "poss": 56.0,
+        "cmp": 86.8,
+        "longsh": 13.7,
+        "press": 121,
+        "xgdiff": 1.7
+      },
+      "Argentina": {
+        "poss": 57.7,
+        "cmp": 84.9,
+        "longsh": 15.9,
+        "press": 140,
+        "xgdiff": 1.4
+      },
+      "Costa Rica": {
+        "poss": 31.5,
+        "cmp": 74.8,
+        "longsh": 22.5,
+        "press": 145,
+        "xgdiff": -2.2
+      },
+      "Serbia": {
+        "poss": 51.1,
+        "cmp": 78.9,
+        "longsh": 19.4,
+        "press": 120,
+        "xgdiff": -1.4
+      },
+      "Australia": {
+        "poss": 38.3,
+        "cmp": 73.4,
+        "longsh": 23.0,
+        "press": 137.2,
+        "xgdiff": -1.2
+      },
+      "Uruguay": {
+        "poss": 48.4,
+        "cmp": 78.3,
+        "longsh": 20.8,
+        "press": 124.7,
+        "xgdiff": 0.1
+      },
+      "South Korea": {
+        "poss": 48.4,
+        "cmp": 80.9,
+        "longsh": 22.4,
+        "press": 128.8,
+        "xgdiff": -0.6
+      }
+    }
+  }
+]

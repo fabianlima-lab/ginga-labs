@@ -1,0 +1,90 @@
+[
+  {
+    "edition": "FIFA 1970",
+    "teams": 1,
+    "has_xg": true,
+    "corr_vs_goaldiff": {
+      "poss": null,
+      "cmp": null,
+      "long": null,
+      "xgd": null
+    }
+  },
+  {
+    "edition": "FIFA 1974",
+    "teams": 1,
+    "has_xg": true,
+    "corr_vs_goaldiff": {
+      "poss": null,
+      "cmp": null,
+      "long": null,
+      "xgd": null
+    }
+  },
+  {
+    "edition": "FIFA 1986",
+    "teams": 1,
+    "has_xg": true,
+    "corr_vs_goaldiff": {
+      "poss": null,
+      "cmp": null,
+      "long": null,
+      "xgd": null
+    }
+  },
+  {
+    "edition": "FIFA 2018",
+    "teams": 32,
+    "has_xg": true,
+    "corr_vs_goaldiff": {
+      "poss": 0.12,
+      "cmp": 0.0,
+      "long": -0.15,
+      "xgd": 0.51
+    }
+  },
+  {
+    "edition": "FIFA 2022",
+    "teams": 32,
+    "has_xg": true,
+    "corr_vs_goaldiff": {
+      "poss": 0.61,
+      "cmp": 0.51,
+      "long": -0.54,
+      "xgd": 0.67
+    }
+  },
+  {
+    "edition": "UEFA 2020",
+    "teams": 24,
+    "has_xg": true,
+    "corr_vs_goaldiff": {
+      "poss": 0.54,
+      "cmp": 0.36,
+      "long": -0.39,
+      "xgd": 0.76
+    }
+  },
+  {
+    "edition": "UEFA 2024",
+    "teams": 24,
+    "has_xg": true,
+    "corr_vs_goaldiff": {
+      "poss": 0.55,
+      "cmp": 0.51,
+      "long": -0.37,
+      "xgd": 0.61
+    }
+  },
+  {
+    "edition": "Copa 2024",
+    "teams": 16,
+    "has_xg": true,
+    "corr_vs_goaldiff": {
+      "poss": 0.51,
+      "cmp": 0.33,
+      "long": -0.18,
+      "xgd": 0.81
+    }
+  }
+]
