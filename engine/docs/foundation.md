@@ -37,8 +37,20 @@ plausible-looking report. That is the whole point of the project.
 | 2 | **Facts** | parsed, typed, each pointing back to its raw file | a fact with no source pointer |
 | 3 | **Derive** | metrics computed by code from facts | a hand-typed number |
 | 4 | **Insight** | confirmed / myth / discovery (see `insight-method.md`) | a claim that can't cite a Layer-3 number |
-| 5 | **Narrate / render** | prose + image-reports; numbers injected from fact files | a renderer reading a stat from prose; an empty slot filled in |
-| 6 | **Publish** | a guard blocks ship if any number lacks a trace | publishing un-traceable output |
+| 5 | **Narrate / render** | prose + image-reports; numbers injected from fact files; the renderer emits a **manifest** of every data-bound value + its source field | a renderer reading a stat from prose; an empty slot filled in |
+| 5.5 | **Verify** *(the gate)* | independently re-checks output vs facts: **trace** (manifest value == source field) + **numeric lint** (every number in prose reconciles to a fact). Exits non-zero on any miss | letting an unverified number reach publish |
+| 6 | **Publish** | only runs if Verify passed; provenance footer auto-generated from files consumed | publishing un-traceable output |
+
+### Where review layers live (and where they deliberately don't)
+Checks sit at the **failure points**, not at every layer (that's bureaucracy, not
+safety):
+- **Ingest / Facts:** a light schema/sanity check — expected shape present; no
+  fact without a source pointer.
+- **Verify (5.5):** the heavy one — the anti-fabrication gate. The renderer
+  *declares* the numbers it used; Verify *independently* re-loads the facts and
+  proves each one. A number that appears nowhere in the facts **fails the build.**
+  This is the mechanism that makes the no-fabrication contract enforceable rather
+  than aspirational.
 
 ### The two inversions that make fabrication impossible
 - **Data flows up.** The writer is downstream of the data, never its source.
